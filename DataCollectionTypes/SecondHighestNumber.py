@@ -2,8 +2,6 @@ __author__ = 'Sanjay'
 
 # Let's delve into one of the most basic data types in Python, the list. You are given NN numbers. Store them in a list and find the second largest number.
 #
-# NOTE: Do not use the insertion sort method.
-#
 # Input Format
 #
 # The first line contains NN. The second line contains an array AA[] of NN integers each separated by a space.
