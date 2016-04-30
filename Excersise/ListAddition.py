@@ -23,7 +23,7 @@ def genericCheck(a,b):
     diff = len(a) - len(b)
     for i in range(diff):
         b.append(0)
-        ListAdditionOutputWithCommaSeparated(a,b)
+    ListAdditionOutputWithCommaSeparated(a,b)
 
 if __name__ == '__main__':
     a = range(10)
