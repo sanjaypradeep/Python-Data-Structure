@@ -30,6 +30,8 @@ __author__ = 'Sanjay'
 #
 # this-is-a-string
 
-userInput = raw_input()
-
-print userInput.replace(" ", "-")
+userInput = input()
+# solution 1:
+print (userInput.replace(" ", "-"))
+# Solution 2:
+print ("-".join(userInput.split()))
