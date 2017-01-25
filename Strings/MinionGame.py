@@ -46,7 +46,7 @@ __author__ = 'Sanjay'
 #
 # Stuart 12
 
-s = raw_input()
+s = input()
 
 vowels = 'AEIOU'
 
@@ -59,8 +59,8 @@ for i in range(len(s)):
         stusc += (len(s)-i)
 
 if kevsc > stusc:
-    print "Kevin", kevsc
+    print ("Kevin", kevsc)
 elif kevsc < stusc:
-    print "Stuart", stusc
+    print ("Stuart", stusc)
 else:
-    print "Draw"
+    print ("Draw")
