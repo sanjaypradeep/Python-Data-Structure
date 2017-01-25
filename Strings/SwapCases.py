@@ -23,6 +23,6 @@ __author__ = 'Sanjay'
 #
 # hACKERrANK.COM PRESENTS "pYTHONIST 3".__author__ = 'Sanjay'
 
-userInput = input().swapcase()
+userInput = input("Enter a sentence, with different lower and upper cases").swapcase()
 
 print (userInput)
