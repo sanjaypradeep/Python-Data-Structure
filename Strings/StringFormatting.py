@@ -1,13 +1,5 @@
 __author__ = 'Sanjay'
 #
-#
-# s=raw_input().strip()
-# w=int(raw_input())
-# for i in range(0,len(s)+1,w):
-#     print(s[i:w+i])
-#
-#     Task
-#
 # Read the integer, NN and print the decimal, octal, hexadecimal, and binary values from 11 to NN with space padding so that all fields take the same width as the binary value.
 #
 # Input Format
@@ -42,7 +34,7 @@ __author__ = 'Sanjay'
 #    17    21    11 10001
 
 
-n = int(raw_input())
+n = int(input())
 width = len("{0:b}".format(n))
-for i in xrange(1,n+1):
-    print "{0:{width}d} {0:{width}o} {0:{width}X} {0:{width}b}".format(i, width=width)
+for i in range(1,n+1):
+    print ("{0:{width}d} {0:{width}o} {0:{width}X} {0:{width}b}".format(i, width=width))
