@@ -29,8 +29,8 @@ __author__ = 'Sanjay'
 # True
 # True
 # True
-string = raw_input()
-l=list(string)
+userGivenString = input()
+l=list(userGivenString)
 a,b,c,d,e=False,False,False,False,False
 for i in l:
     if i.isalnum():
@@ -43,8 +43,8 @@ for i in l:
         d=True
     if i.isupper():
         e=True
-print a
-print b
-print c
-print d
-print e
+print (a)
+print (b)
+print (c)
+print (d)
+print (e)
