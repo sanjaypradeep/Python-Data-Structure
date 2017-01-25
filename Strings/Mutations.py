@@ -19,11 +19,11 @@ __author__ = 'Sanjay'
 # abrackdabra
 
 
-userInput = raw_input()
-index, stringTobeReplaced = raw_input().split(" ")
+userInput = input()
+index, stringTobeReplaced = input().split(" ")
 
 l = list(userInput)
 l[int(index)] = stringTobeReplaced
 userInput = ''.join(l)
-print userInput
+print (userInput)
 
