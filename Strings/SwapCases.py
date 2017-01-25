@@ -21,8 +21,8 @@ __author__ = 'Sanjay'
 # HackerRank.com presents "Pythonist 2".
 # Sample Output
 #
-# hACKERrANK.COM PRESENTS "pYTHONIST 2".__author__ = 'Sanjay'
+# hACKERrANK.COM PRESENTS "pYTHONIST 3".__author__ = 'Sanjay'
 
-userInput = raw_input().swapcase() #works only for Python 2. X
+userInput = input().swapcase()
 
-print userInput
+print (userInput)
