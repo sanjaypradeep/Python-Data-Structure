@@ -1,4 +1,6 @@
 __author__ = 'Sanjay'
+from itertools import *
+
 #
 # Task
 #
@@ -52,8 +54,10 @@ __author__ = 'Sanjay'
 
 #  (1, 3) (1, 4) (2, 3) (2, 4)
 
-a=map(int,raw_input().split(" "))
-b=map(int,raw_input().split(" "))
-from itertools import product
-for i in list(product(a,b)):
-    print i,
+
+firstInput = list(map(int, input().split()))
+secondInput = list(map(int, input().split()))
+
+
+for i in list(product(firstInput, secondInput)):
+    print(i,end="")
