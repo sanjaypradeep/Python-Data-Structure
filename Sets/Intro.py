@@ -19,6 +19,6 @@ __author__ = 'Sanjay'
 # Sample Output
 #
 # 169.375
-raw_input()
-s=set(map(int,raw_input().split()))
+input()
+s=set(map(int,input().split()))
 print(sum(s)/float(len(s)))
