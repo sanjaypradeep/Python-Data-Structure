@@ -37,10 +37,10 @@ __author__ = 'Sanjay'
 # students = [['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41], ['Harsh', 39]]
 # The lowest grade of 37.237.2 belongs to Tina. The second lowest grade of 37.2137.21 belongs to both Harry and Berry, so we order their names alphabetically and print each name on a new line.
 
-n = int(raw_input())
-marks = [[raw_input(), float(raw_input())] for i in  xrange(n)]
+n = int(input())
+marks = [[input(), float(input())] for i in  range(n)]
 scores = sorted({s[1] for s in marks})
 result = sorted(s[0] for s in marks if s[1] == scores[1])
-print '\n'.join(result)
+print ('\n'.join(result))
 
 #ends

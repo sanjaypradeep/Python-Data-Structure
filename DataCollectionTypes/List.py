@@ -107,11 +107,11 @@ __author__ = 'Sanjay'
 # [9, 5, 1]
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-T = int(raw_input().strip())
+T = int(input().strip())
 
 L = []
 for t in range(T):
-    args = raw_input().strip().split(" ")
+    args = input().strip().split(" ")
     if args[0] == "append":
         L.append(int(args[1]))
     elif args[0] == "insert":
@@ -125,4 +125,4 @@ for t in range(T):
     elif args[0] == "reverse":
         L.reverse()
     elif args[0] == "print":
-        print L
+        print (L)
