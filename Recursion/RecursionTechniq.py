@@ -6,7 +6,7 @@ def sumOfList(inp):
     s = 0
     for i in inp:
         s = s +i
-    print s
+    print (s)
     return s
 
 #Recurssion methodology now
@@ -31,6 +31,6 @@ def listsum(numList):
    return numList
 
 if __name__ == '__main__':
-    sumOfList([1,2,3,6,7,8,9,065,6])
+    sumOfList([1,2,3,6,7,8,9,65,6])
     sumRec([1,90,80,700]) # 3 RECURSSIVE CALLS WIL HAPPEN (TOTAL LENGTH - 1)
     listsum([1,90,80,700])
