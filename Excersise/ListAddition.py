@@ -14,9 +14,9 @@ def ListAdditionOutputWithCommaSeparated(a,b):
         for i in range(len(a)):
             c = a[i] + b[i]
             s = s + str(c)
-        print [int(i) for i in s]
+        print ([int(i) for i in s])
     except (IndexError, ValueError):
-        print ValueError
+        print (ValueError)
 
 
 def genericCheck(a,b):

@@ -1,11 +1,17 @@
-def fac(givenInput):
-    if givenInput>1:
-        i = range(1, givenInput+1)
-        op = 1
-        for m in i[::-1]:
-            op = op * m
-    print (op)
+__author__ = 'Sanjay'
+
+def fa(n):
+    # if n==1:
+    #     return 1
+    # else:
+    #     return fa(n) * fa(n-1)
+    f = 1
+    for i in range(n+1):
+        if i is not 0:
+            f = f*i
+    print (f)
 
 if __name__ == '__main__':
-    inputForFactorial = int(input("Enter a number! I will you the factorial results."))
-    fac(abs(inputForFactorial))
+    print ("Enter a number to find the factorial!")
+    getInput = int(input())
+    fa(getInput)

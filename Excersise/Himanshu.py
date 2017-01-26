@@ -59,7 +59,7 @@ def someMethod():
     totalCase = input()
     userInput = []
     for i in range(int(totalCase)):
-        a, b = raw_input().split(" ")
+        a, b = input().split(" ")
         userInput.append([int(a), int(b)])
 
     for i in userInput:

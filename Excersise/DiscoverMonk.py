@@ -1,7 +1,5 @@
 __author__ = 'Sanjay'
 
-# This below excercise is given in HackersEarth Practice.
-
 def monk(n, args = []):
 
     someArray = range(0,50,10)

@@ -26,8 +26,8 @@ __author__ = 'Sanjay'
 # Lists are mutable. They can be changed by adding or removing values from the list.
 
 input()
-a=map(int,raw_input().split(" "))
+a=list(map(int,input().split(" ")))
 b=max(a)
 while max(a)==b :
     a.remove(b)
-print max(a)
+print (max(a))

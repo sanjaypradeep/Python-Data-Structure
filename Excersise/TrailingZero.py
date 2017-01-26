@@ -12,7 +12,7 @@ def trails(n):
                 break
             else:
                 ans = ans + cal
-        print ans
+        print (ans)
 
 
 if __name__ == '__main__':

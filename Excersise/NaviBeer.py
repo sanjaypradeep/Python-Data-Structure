@@ -47,33 +47,33 @@ Source Limit: 1024 KB
 Marking Scheme: Marks are awarded if any testcase passes.
 Allowed languages: C, CPP, CLOJURE, CSHARP, GO, HASKELL, JAVA, JAVASCRIPT, JAVASCRIPT_NODE, LISP, OBJECTIVEC, PASCAL, PERL, PHP, PYTHON, RUBY, R, RUST, SCALA
 """
-#
-# def remaingAmount(numberOfBeers,eachBeerCost,rupeesInPurse):
-#     totalCost1 = 0
-#     totalCost2 = 0
-#     for i in range(eachBeerCost):
-#         if i == 0:
-#             i = 1
-#             totalCost1 = numberOfBeers * i**3
-#         else:
-#             i = i+1
-#             totalCost2 = numberOfBeers * i**3
-#
-#         finalCost = totalCost1 + totalCost2
-#     remaingBalance = finalCost - rupeesInPurse
-#     print abs(remaingBalance)
-#
-#
-# if __name__ == '__main__':
-#     remaingAmount(2,2,10)
+
+def remaingAmount(numberOfBeers,eachBeerCost,rupeesInPurse):
+    totalCost1 = 0
+    totalCost2 = 0
+    for i in range(eachBeerCost):
+        if i == 0:
+            i = 1
+            totalCost1 = numberOfBeers * i**3
+        else:
+            i = i+1
+            totalCost2 = numberOfBeers * i**3
+
+        finalCost = totalCost1 + totalCost2
+    remaingBalance = finalCost - rupeesInPurse
+    print (abs(remaingBalance))
 
 
-class A():
-    print ("sanjay")
-    def __init__(self):
-        print ("s")
+if __name__ == '__main__':
+    remaingAmount(2,2,10)
 
-x = A()
-print (x)
-
-[i for i in range(5) if i%3 ==0 ]
+#
+# class A():
+#     print ("sanjay")
+#     def __init__(self):
+#         print ("s")
+#
+# x = A()
+# print (x)
+#
+# print ([i for i in range(5) if i%3 ==0 ])

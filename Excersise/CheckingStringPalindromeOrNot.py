@@ -11,7 +11,7 @@ def checkPalindrome():
         else:
             print ("is it something else?Please check.")
     except Exception as e:
-        print (e.message)
+        print (e)
         
 
 if __name__ == '__main__':
