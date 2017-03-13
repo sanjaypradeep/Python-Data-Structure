@@ -10,25 +10,26 @@ __author__ = 'Sanjay'
 # isEmpty() tests to see whether the queue is empty. It needs no parameters and returns a boolean value.
 
 # size() returns the number of items in the queue. It needs no parameters and returns an integer.
-class Queue:
-    def __init__(self):
-        self.items = []
-
-    def isEmpty(self):
-        return self.items == []
-
-    def enqueue(self, item):
-        self.items.insert(0,item)
-
-    def dequeue(self):
-        return self.items.pop()
-
-    def size(self):
-        return len(self.items)
+# class Queue:
+#     def __init__(self):
+#         self.items = []
+#
+#     def isEmpty(self):
+#         return self.items == []
+#
+#     def enqueue(self, item):
+#         self.items.insert(0,item)
+#
+#     def dequeue(self):
+#         return self.items.pop()
+#
+#     def size(self):
+#         return len(self.items)
 
 if __name__  == '__main__':
-    q = Queue()
-    q.enqueue('hello')
-    q.enqueue('dog')
-    q.enqueue(3)
-    q.dequeue()
+    pass
+    # q = Queue()
+    # q.enqueue('hello')
+    # q.enqueue('dog')
+    # q.enqueue(3)
+    # q.dequeue()
