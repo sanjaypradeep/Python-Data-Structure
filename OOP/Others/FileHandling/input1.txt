@@ -1,2 +1,8 @@
 Mage
-ab+	Opens a file for both appending and reading in binary format. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing.
+hey this is goods
+hey this is goods
+hey this is sanjay
+trying something
+hope it ll go fine
+thanks
+now lets see heresSomething I'm writing here!Something I'm writing here!

@@ -20,7 +20,7 @@ if __name__ == '__main__':
     # print(list(lambda x,y -> x*y))
     print(list(map(lambda x,y: x*y, l1, l4)))
 
-    # reduce(map(lambda x,y: x+y, [1,2,3,4,5]))
+    # reduce(lambda x,y: x+y, [1,2,3,4,5])
 
     '''
     [1,2,3,4,5]

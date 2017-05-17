@@ -1,5 +1,5 @@
 __author__ = 'Sanjay'
-#
+
 # Input Format
 #
 #
@@ -60,3 +60,9 @@ for k,v in sorted( Counter(input()).most_common(3) , key = lambda x: (-x[1],x[0]
 userInput = list(str(input()))
 for key, countValue in dict(Counter(userInput)).items():
     print(key, countValue)
+
+
+
+# i1 = int(input("Please enter first number"))
+# i2 = int(input("please enter 2nd number"))
+# print("The sum is ", i1+i2)
