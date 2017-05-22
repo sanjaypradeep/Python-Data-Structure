@@ -5,13 +5,13 @@ def isDivide(x,y):
     try:
         if x >= 1:
             if x > y:
-                print abs(x/y)
+                print (abs(x/y))
             elif y > x:
-                print abs(y/x)
+                print (abs(y/x))
             else:
                 raise ZeroDivisionError
     except ZeroDivisionError as e:
-        print (e.message)
+        print (e)
     else:
         print ("inside else")
     finally:
@@ -19,5 +19,5 @@ def isDivide(x,y):
         # raise ZeroDivisionError
 
 if __name__ == '__main__':
-    isDivide(1, 10)
-    # isDivide(10, 0)
+    # isDivide(1, 10)
+    isDivide(10, 0)
