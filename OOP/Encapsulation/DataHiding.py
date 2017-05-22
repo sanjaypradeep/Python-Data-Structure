@@ -18,10 +18,14 @@ class SampleClass(object):
     def getSecureData(self):
         print("I am a secure data",self.__a)
 
+    # Below method (which is inside the class) is considered as protected method(single underscore
+    # is used before the method name.
     def _getProtectedData(self):
         print ("inside single underscore")
         print(self.__a)
 
+    # Below method (which is inside the class) is considered as Private method(used double underscore
+    # before the method name.
     def __getMoreSecureDataMethod(self):
         print(self.__a)
 
