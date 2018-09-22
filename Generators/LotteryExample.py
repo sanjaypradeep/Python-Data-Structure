@@ -1,3 +1,5 @@
+__author__ = 'Sanjay'
+
 # How to create a generator in Python?
 # It is fairly simple to create a generator in Python. It is as easy as defining a normal function with
 # yield statement instead of a return statement.

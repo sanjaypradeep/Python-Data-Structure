@@ -1,3 +1,5 @@
+__author__ = 'Sanjay'
+
 # Generators are very easy to implement, but a bit difficult to understand.
 #
 # Generators are used to create iterators, but with a different approach. Generators are simple functions which return an
