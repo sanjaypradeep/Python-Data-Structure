@@ -21,19 +21,17 @@
 # Simply speaking, a generator is a function that returns an object (iterator) which we can iterate over (one value at a time).
 
 
-import random
-import time
 
-def lottery():
-    # returns 6 numbers between 1 and 40
-    for i in range(6):
-        yield random.randint(1, 40) #bascially yield always returns the value.
+def justChecking():
+    for tempIteration in range(10):
+        yield tempIteration
+        # print (i)
 
-    # returns a 7th number between 1 and 15
-    time.sleep(10)
-    yield random.randint(100,110) #after completing the above iterations, pointer comes here, yeilds returns the value from random.randint(1,15)
+justCheckingValues = justChecking() # here the expectation is "a" has the yeild value.
 
-# print (lottery())
+print (a) # print the assinged value. But no, it prints the generator object ID. Example <generator object justChecking at 0x101b18200>
 
-for random_number in lottery():
-       print("And the next number is... %d!" %(random_number))
+# if you want to print the yeild values, lets again iterate.
+
+for i in justCheckingValues:
+    print (i)
