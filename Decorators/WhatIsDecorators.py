@@ -61,6 +61,52 @@ print (new())
 # None - basically is_called function returns is_returned method (which in turn prints "hello") so this throws None.
 
 
+# HERE'S SOMETHING IMPORTANT ..
+
+# Functions and methods are called callable as they can be called.
+#
+# In fact, any object which implements the special method __call__() is termed callable. So, in the most basic sense, a decorator is a callable that returns a callable.
+#
+# Basically, a decorator takes in a function, adds some functionality and returns it.
 
 
+def make_pretty(func):
+    def inner():
+        print("I got decorated")
+        func()
+    return inner
 
+def ordinary():
+    print("I am ordinary")
+
+
+# Above we have two functions.. ordinary and make_pretty()
+
+ordinary() #output : "I am ordinary"
+
+# Now passing ordinary() as a parameter to make_pretty
+
+sample = make_pretty(ordinary)
+sample()
+
+# Here's the output..
+
+# I got decorated
+# I am ordinary
+
+# Generally, we decorate a function and reassign it as,
+#
+# ordinary = make_pretty(ordinary).
+# This is a common construct and for this reason, Python has a syntax to simplify this.
+#
+# We can use the @ symbol along with the name of the decorator function and place it above the definition of the function to be decorated. For example,
+#
+@make_pretty
+def ordinary():
+    print("I am ordinary")
+
+# is equivalent to
+
+def ordinary():
+    print("I am ordinary")
+ordinary = make_pretty(ordinary)
