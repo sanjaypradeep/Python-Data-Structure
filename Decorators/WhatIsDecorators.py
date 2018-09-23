@@ -110,3 +110,30 @@ def ordinary():
 def ordinary():
     print("I am ordinary")
 ordinary = make_pretty(ordinary)
+
+# Decorating Functions with Parameters
+# The above decorator was simple and it only worked with functions that did not have any parameters. What if we had functions that took in parameters like below?
+
+def smart_divide(func):
+   def inner(a,b):
+      print("I am going to divide",a,"and",b)
+      if b == 0:
+         print("Whoops! cannot divide")
+         return
+
+      return func(a,b)
+   return inner
+
+@smart_divide
+def divide(a,b):
+    return a/b
+
+divide(5,2) # Output: I am going to divide 5 and 2
+
+print (divide(5,2))
+
+# Here's the Output of above statement ..
+
+# I am going to divide 5 and 2
+# 2.5
+
