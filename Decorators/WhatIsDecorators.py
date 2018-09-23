@@ -30,3 +30,37 @@ secondVariable("Hello..") #output : Hello
 
 # Here's the example.
 
+def add(firstInput, secondInput):
+    return firstInput + secondInput
+
+def sub(firstInput, secondInput):
+    return firstInput - secondInput
+
+def operation(func, firstInput, secondInput):
+    result = func(firstInput, secondInput)
+    return result
+
+# Here you go ..
+
+output = operation(add, 10, 10) # assinging the result to a variable, because operation method is going to return a value
+
+print (output) #output : 20
+
+# Further more, a sample example..
+
+def is_called():
+    def is_returned():
+        print("Hello")
+    return is_returned
+
+new = is_called()
+print (new())
+
+#Here's the Output below ..
+# "Hello"
+# None - basically is_called function returns is_returned method (which in turn prints "hello") so this throws None.
+
+
+
+
+
