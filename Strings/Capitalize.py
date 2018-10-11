@@ -22,9 +22,9 @@ __author__ = 'Sanjay'
 #
 # Hello World
 
-userInput = raw_input()
+userInput = str(intput())
 
 l = userInput.split(" ")
 
 for i in l:
-    print i.capitalize(),
+    print (i.capitalize())
