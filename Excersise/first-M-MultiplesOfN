@@ -1,0 +1,27 @@
+# Print first m multiples of n without using any loop in Python
+# Given n and m, print first m multiples of a m number without using any loops in Python.
+#
+# Examples:
+#
+# Input : n = 2, m = 3
+# Output : 2 4 6
+#
+# Input : n = 3, m = 4
+# Output : 3 6 9 12
+
+
+# function to print the first m multiple
+# of a number n without using loop.
+def multiple(m, n):
+    # inserts all elements from n to
+    # (m * n)+1 incremented by n.
+    a = range(n, (m * n) + 1, n)
+
+    print(*a)
+
+
+if __name__ == '__main__':
+    firstInput = int(input("Enter first number "))
+    secInput = int(input("Enter second number "))
+
+    multiple(firstInput, secInput)
