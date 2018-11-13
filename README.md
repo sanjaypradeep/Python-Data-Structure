@@ -5,7 +5,7 @@ This repository will be really helpful, if you want to learn from the  scratch i
 
 Here's the list of topics available to learn,
 
-* [Introduction (Basic information to learn Python and it's usability)] - HTML enhanced for web apps!
+* [Introduction (Basic information to learn Python and it's usability)]
 * [Dictionary]
 * [List]
 * [Tuple]
