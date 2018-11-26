@@ -79,3 +79,68 @@ mySet.clear() # returns {} empty set
 del mySet
 
 
+# difference()
+
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+
+s1.difference(s2) #{1,2,3} 
+s2.difference(s1) # {6,7,8}
+
+
+
+# symmentric_difference()
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+
+s1.symmentric_difference(s2) #{1,2,3,6,7,8}
+s2.symmentric_difference(s1) #{1,2,3,6,7,8}
+
+
+
+# difference_update()	Removes the items in this set that are also included in another, specified set
+
+s1.difference_update(s2) # {1,2,3} -> it actually remvoved 4,5 from s1
+
+s2.difference_update(s1) # {6,7,8} --> it actually removed 4,5 from s2
+
+
+# Union
+
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+
+s1 | s2 # {1,2,3,4,5,6,7,8} --> the common items (4,5) between two sets are not repeated
+
+
+# Intersection
+
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+
+s1 & s2 # {4, 5} --> returns common elements which are available in two sets
+
+
+# intersection_update()	- Removes the items in this set that are not present in other, specified set(s)
+
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+
+s1.intersection_update(s2) 
+s1 # {4,5} because it removed not matching elements
+s2 # {8, 4, 5, 6, 7} its still the same
+
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+
+s2.intersection_update(s1)
+s1 # {1,2,3,4,5}
+s2 # {4,5} because it removed not matching elements
+
+
+
+
+
+
+
+
