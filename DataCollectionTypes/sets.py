@@ -97,6 +97,15 @@ s1.symmentric_difference(s2) #{1,2,3,6,7,8}
 s2.symmentric_difference(s1) #{1,2,3,6,7,8}
 
 
+# symmetric_difference_update()	inserts the symmetric differences from this set and another
+s1 = {1,2,3,4,5}
+s2 = {4,5,6,7,8}
+
+s1.symmetric_difference_update(s2)
+s1 # {1,2,3,6,7,8} 
+
+# if you do s2.symmetric_difference_update(s1) it will return the same elements as above.
+
 
 # difference_update()	Removes the items in this set that are also included in another, specified set
 
