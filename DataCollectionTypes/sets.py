@@ -148,6 +148,25 @@ s2 # {4,5} because it removed not matching elements
 
 
 
+# issubset() 
+
+s1 = {'a','b','c'}
+s2 = {'c','d','e','a','m','b'}
+
+s1.issubset(s2) # --> True [Explanation: checks wether all elements of s1 is available in s2 or not, if available then returns True else False]
+
+s2.issubset(s1) # --> False [Explanation: checks wether all elements of s2 is available in s1 or not, if available then returns True else False]
+
+
+# issuperset()
+
+s1 = {'a','b','c'}
+s2 = {'c','d','e','a','m','b'}
+
+s1.issuperset(s2) # --> False [Explanation: checks whether all elements of s2 is available in s1 or not, if available then returns True else False]
+
+
+
 
 
 
