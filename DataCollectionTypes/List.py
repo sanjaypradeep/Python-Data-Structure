@@ -107,11 +107,12 @@ __author__ = 'Sanjay'
 # [9, 5, 1]
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-T = int(input().strip())
+T = int(input())
 
 L = []
 for t in range(T):
-    args = input().strip().split(" ")
+    args = str(input().strip().split(" "))
+    print ("args.. ", args)
     if args[0] == "append":
         L.append(int(args[1]))
     elif args[0] == "insert":
