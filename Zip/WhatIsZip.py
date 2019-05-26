@@ -52,13 +52,33 @@ print ("The zipped result is .. ", dict(result))
 finalOp = {}
 
 def needOutput(sub, professors):
-	finalOp = dict(zip(sub, professors))
-	for i in sub:
-		if i in finalOp:
-			pass
-		else:
-			finalOp[i] = None
-	return finalOp
+	if len(sub) > len(professors):
+		finalOp = dict(zip(sub, professors))
+		finalOp = includedMissedEleement(finalOp, sub)
+		return finalOp
+	elif len(professors) > len(sub):
+		finalOp = dict(zip(professors, sub))
+		finalOp = includedMissedEleement(finalOp, professors)
+		return finalOp
+	else:
+		return dict(zip(sub, professors))
+
+
+def includedMissedEleement(op, listToCheck):
+	for i in listToCheck:
+		if i not in op:
+			op[i] = None
+	return op
 
 desiredOutput = needOutput(subject, teachernames)
 print(desiredOutput)
+
+# the above output is desired only in case of more subjects than teachers.
+
+# what if there're more teachers than subjects.
+
+subject = ['Tamil', 'English']
+teacherNames = ['Ram', 'Tamanna', 'Lita']
+
+finaOutput = needOutput(subject, teacherNames)
+print(finaOutput)
