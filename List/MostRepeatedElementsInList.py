@@ -2,7 +2,7 @@ __author__ = 'Sanjay'
 from collections import Counter
 import operator
 
-def mostTrendingBrand(numOfResponse,listOfBrands):
+def mostTrendingBrand(numOfResponse, listOfBrands):
     if numOfResponse>1:
         brandCount = Counter(listOfBrands)
         onlyCount = []
@@ -14,17 +14,16 @@ def mostTrendingBrand(numOfResponse,listOfBrands):
             if trendingCount == va:
                 trendingBrandOutput.append(ke)
         for i in trendingBrandOutput:
-            print "Most repeated item is",i
-
+            print("Most repeated item is",i)
 
 
 if __name__ == "__main__":
-    x = input()
+    x = int(input())
     userInputList = []
-    for i in range(0,x):
-        temp = raw_input()
+    for i in range(0, x):
+        temp = input()
         userInputList.append(temp)
-    mostTrendingBrand(x,userInputList)
+    mostTrendingBrand(x, userInputList)
 
 
 # Sample output
