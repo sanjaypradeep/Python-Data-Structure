@@ -3,9 +3,15 @@ __author__ = 'Sanjay'
 
 # List() creates a new list that is empty. It needs no parameters and returns an empty list.
 
-# add(item) adds a new item to the list. It needs the item and returns nothing. Assume the item is not already in the list.
+# __add__(item) - predefined function -  adds a new item(please make sure, the item must be a list).
+# It's concatinating two list basically.
 
-# remove(item) removes the item from the list. It needs the item and modifies the list. Assume the item is present in the list.
+# __contains__(ElementToCheck) - checks whether this element is present inside the list or not. returns Boolean
+# (True or False)
+
+# __delitem__(indexValueOfTheElement) - value which is available in that particular index will get deleted.
+
+# remove(item) removes the item from the list. Assume the item is present in the list.
 
 # search(item) searches for the item in the list. It needs the item and returns a boolean value.
 
@@ -13,15 +19,20 @@ __author__ = 'Sanjay'
 
 # size() returns the number of items in the list. It needs no parameters and returns an integer.
 
-# append(item) adds a new item to the end of the list making it the last item in the collection. It needs the item and returns nothing. Assume the item is not already in the list.
+# append(item) adds a new item to the end of the list making it the last item in the collection.
+# It needs the item and returns nothing. Assume the item is not already in the list.
 
-# index(item) returns the position of item in the list. It needs the item and returns the index. Assume the item is in the list.
+# index(item) returns the position of item in the list. It needs the item and returns the index.
+# Assume the item is in the list.
 
-# insert(pos,item) adds a new item to the list at position pos. It needs the item and returns nothing. Assume the item is not already in the list and there are enough existing items to have position pos.
+# insert(pos,item) adds a new item to the list at position pos. It needs the item and returns nothing.
+# Assume the item is not already in the list and there are enough existing items to have position pos.
 
-# pop() removes and returns the last item in the list. It needs nothing and returns an item. Assume the list has at least one item.
+# pop() removes and returns the last item in the list. It needs nothing and returns an item.
+# Assume the list has at least one item.
 
-# pop(pos) removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.
+# pop(pos) removes and returns the item at position pos. It needs the position and returns the item.
+# Assume the item is in the list.
 class Node:
     def __init__(self,initdata):
         self.data = initdata
