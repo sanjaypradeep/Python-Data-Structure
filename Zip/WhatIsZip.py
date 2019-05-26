@@ -26,9 +26,9 @@ print(mapped) # The zipped result is : {('Manjeet', 4, 40), ('Shambhavi', 3, 60)
 
 
 #Here's is one other example, 
-
-teachernames = ['Ram', 'Lalitha', 'Gowri']
 subject = ['English', 'Hindi', 'Tamil', 'Math']
+teachernames = ['Ram', 'Lalitha', 'Gowri']
+
 
 # if you see the above two list, there are 3 teachers available inside a list, and there are four subjects
 
@@ -41,3 +41,24 @@ print ("The zipped result is .. ", dict(result))
 
 # Explanation : from the above result, you can understand there's no teacher is been assinged for subject Map, that's because there're only 3 teachers available right now. 
 # length mismatches.
+
+
+# Hey I have a question now?
+
+# I need a dictionary as output saying, the subject which is not having teacher as well. something like.. {'English': 'Ram', 'Hindi': 'Lalitha', 'Tamil': 'Gowri', 'Math': None}
+
+
+# here's the solution, 
+finalOp = {}
+
+def needOutput(sub, professors):
+	finalOp = dict(zip(sub, professors))
+	for i in sub:
+		if i in finalOp:
+			pass
+		else:
+			finalOp[i] = None
+	return finalOp
+
+desiredOutput = needOutput(subject, teachernames)
+print(desiredOutput)
