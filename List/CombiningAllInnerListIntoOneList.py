@@ -10,15 +10,40 @@ class singleList:
             else:
                 finalOutput.append(i)
 
-        print "finally the output is.."
-        print finalOutput
+        print("finally the output is..")
+        print(finalOutput)
+
 
 if __name__ == '__main__':
 
     firstInputList = ['a', 'b', 'c', 'd']
-    secondInputList = range(1, 4)  # [1,2,3]
+    secondInputList = list(range(1, 4)) # [1,2,3]
     firstInputList.append(secondInputList)
-    print firstInputList  # ['a', 'b', 'c', 'd', [1, 2, 3]]
+    print(firstInputList)  # ['a', 'b', 'c', 'd', [1, 2, 3]]
     ob = singleList()
     ob.appendingAllElementsInAList(firstInputList)
+
+    # Take this example, here elements inside the below lists are again list.
+    sampleList = [[1, 2, 3], [4, 5, 6], [7], [8, 9]]
+    flatList = []
+    for listItem in sampleList:
+        for item in listItem:
+            flatList.append(item)
+
+    print(flatList)
+
+    # hey the above code works only when all the elements inside the list, is also a type as list.
+    # it wont work - sampleList = [[1, 2, 3], [4, 5, 6], [7], [8, 9], 10]
+    # here's the solution.
+    sampleListUC2 = [[1, 2, 3], [4, 5, 6], [7], [8, 9], 10]
+    ob.appendingAllElementsInAList(sampleListUC2)
+
+
+
+
+    # here's the most fun code
+    print(sum(sampleList, []))
+
+
+
 
