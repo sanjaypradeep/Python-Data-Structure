@@ -131,7 +131,7 @@ B = {4, 5, 6, 7, 8}
 print(A ^ B)
 
 
-# 6.
+# 6. ----- intersection_update
 
 # The intersection_update() allows arbitrary number of arguments (sets).
 # This method returns None (meaning, absence of a return value). It only updates the set calling the intersection_update() method.
@@ -186,3 +186,45 @@ print('Are A and B disjoint?', A.isdisjoint(B))
 print('Are A and C disjoint?', A.isdisjoint(C))
 print('Are A and D disjoint?', A.isdisjoint(D))
 print('Are A and E disjoint?', A.isdisjoint(E))
+
+
+# 8. ------------issubset
+
+# The issubset() method returns True if all elements of a set are present in another set (passed as an argument).
+# If not, it returns False.
+
+A = {1, 2, 3}
+B = {1, 2, 3, 4, 5}
+C = {1, 2, 4, 5}
+
+# Returns True
+print(A.issubset(B))
+
+# Returns False
+# B is not subset of A
+print(B.issubset(A))
+
+# Returns False
+print(A.issubset(C))
+
+# Returns True
+print(C.issubset(B))
+
+
+
+# 9. ------ isSuperset
+
+# The issuperset() method returns True if a set has every elements of another set (passed as an argument). If not, it returns False.
+
+A = {1, 2, 3, 4, 5}
+B = {1, 2, 3}
+C = {1, 2, 3}
+
+# Returns True
+print(A.issuperset(B))
+
+# Returns False
+print(B.issuperset(A))
+
+# Returns True
+print(C.issuperset(B))
