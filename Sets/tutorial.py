@@ -1,5 +1,8 @@
 # SETS #
 
+# 1. Set() - elements in the set will be in un-ordered type
+# 2. Cannot have duplicate value.
+
 print(dir(set))
 
 # Results in - ['__and__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '_
@@ -82,7 +85,50 @@ print(s2.difference(s1)) # {1, 2, 3} -because '4' available in s1, therefore it'
 
 # 2. ------------- difference_update - updates a set in-place rather than return a new one. ----------------
 
+A = {'a', 'c', 'g', 'd'}
+B = {'c', 'f', 'g'}
 
+result = A.difference_update(B)
+
+print('A = ', A) # A =  {'d', 'a'}
+print('B = ', B) # B =  {'c', 'g', 'f'}
+print('result = ', result) # result =  None
+
+
+# 3. -----------Union - Union is performed using | operator. Same can be accomplished using the method union().
+
+# initialize A and B
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+# use | operator
+# Output: {1, 2, 3, 4, 5, 6, 7, 8}
+print(A | B)
+
+
+# 4. ----------- Intersection is performed using & operator. Same can be accomplished using the method intersection().
+
+# initialize A and B
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+# use & operator
+# Output: {4, 5}
+print(A & B)
+
+# 5. ------ Symmetric Diffrence
+
+# Symmetric Difference of A and B is a set of elements in both A and B except those that are common in both.
+# Symmetric difference is performed using ^ operator. Same can be accomplished using the method symmetric_difference().
+
+
+# initialize A and B
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+# use ^ operator
+# Output: {1, 2, 3, 6, 7, 8}
+print(A ^ B)
 
 
 
