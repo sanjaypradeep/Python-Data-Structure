@@ -131,5 +131,58 @@ B = {4, 5, 6, 7, 8}
 print(A ^ B)
 
 
+# 6.
+
+# The intersection_update() allows arbitrary number of arguments (sets).
+# This method returns None (meaning, absence of a return value). It only updates the set calling the intersection_update() method.
 
 
+A = {1, 2, 3, 4}
+B = {2, 3, 4, 5}
+
+result = A.intersection_update(B)
+
+print('result =', result)
+print('A =', A)
+print('B =', B)
+
+# Example 2: intersection_update() with Two Parameters
+
+A = {1, 2, 3, 4}
+B = {2, 3, 4, 5, 6}
+C = {4, 5, 6, 9, 10}
+
+result = C.intersection_update(B, A)
+
+print('result =', result)
+print('C =', C)
+print('B =', B)
+print('A =', A)
+
+
+
+# 7. ------- isDisjoint()
+
+# The isdisjoint() method returns True if two sets are disjoint sets. If not, it returns False.
+# Two sets are said to be disjoint sets if they have no common elements.
+
+A = {1, 2, 3, 4}
+B = {5, 6, 7}
+C = {4, 5, 6}
+
+print('Are A and B disjoint?', A.isdisjoint(B))
+print('Are A and C disjoint?', A.isdisjoint(C))
+
+
+# Example 2: isdisjoint() with Other Iterables as arguments
+
+A = {'a', 'b', 'c', 'd'}
+B = ['b', 'e', 'f']
+C = '5de4'
+D ={1 : 'a', 2 : 'b'}
+E ={'a' : 1, 'b' : 2}
+
+print('Are A and B disjoint?', A.isdisjoint(B))
+print('Are A and C disjoint?', A.isdisjoint(C))
+print('Are A and D disjoint?', A.isdisjoint(D))
+print('Are A and E disjoint?', A.isdisjoint(E))
