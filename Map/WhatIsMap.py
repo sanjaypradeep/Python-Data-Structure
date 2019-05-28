@@ -1,5 +1,6 @@
 # Python map() function
-# map() function returns a list of the results after applying the given function to each item of a given iterable (list, tuple etc.)
+# map() function returns results as Map object type, after applying the given function to each item of a
+# given iterable (list, tuple etc.)
 
 # Parameters :
 
@@ -18,16 +19,15 @@ def addition(n):
 # We double all numbers using map()
 numbers = (1, 2, 3, 4)
 result = map(addition, numbers)
-# print(result) #this will return an object.
-#
-#
-# print (set(result)) # {8, 2, 4, 6}
+print(result) # this will return an object.
 
-# print (tuple(result))
-#
-# print (list(result))
-#
-# print (result)
+print(set(result)) # {8, 2, 4, 6}
+
+print(tuple(result)) # returns empty tuple as ()
+
+print(list(result)) # returns empty list as []
+
+print(result) # map object
 
 
 
@@ -35,11 +35,14 @@ def addingTwoNumber(m,n):
     return m+n
 
 
-firstT = (1,2,3,4,5)
-secondT = (4,5,6,9)
-print(list(map(addingTwoNumber, firstT, secondT)))
+firstT = (1, 2, 3, 4, 5) # whose len is 5
+secondT = (4, 5, 6, 9) # whose len is 4
 
-print(list(map(addingTwoNumber, firstT, list(secondT))))
+# here's the map calculation, map(<methodName>, param1, param2)
+print(list(map(addingTwoNumber, firstT, secondT))) # output as - [5, 7, 9, 13]
+
+# here the para1 is supplied as list, but still it works and gives the same output.
+print(list(map(addingTwoNumber, firstT, list(secondT)))) # output as - [5, 7, 9, 13]
 
 # We can also use lambda expressions with map to achieve above result.
 
@@ -69,5 +72,5 @@ print(test)
 
 l = ['sanjay', 'surya']
 op = list(map(tuple, l))
-print (op)
+print(op)
 
