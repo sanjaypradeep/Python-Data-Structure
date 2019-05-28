@@ -56,7 +56,7 @@ print(list(result))
 # One more example..
 # Add two lists using map and lambda
 
-numbers1 = [1, 2, 3]
+numbers1 = [1, 2, 3, 4, 5]
 numbers2 = [4, 5, 6]
 
 result = map(lambda x, y: x + y, numbers1, numbers2)
@@ -73,4 +73,25 @@ print(test)
 l = ['sanjay', 'surya']
 op = list(map(tuple, l))
 print(op)
+
+
+
+l = ['sanjay', 'surya']
+op = list(map(list, l))
+print(op)
+
+overAllList = []
+for listParam in op:
+    for values in listParam:
+        overAllList.append(values)
+
+print(overAllList)
+dictOutput = {}
+for i in overAllList:
+    dictOutput[i] = overAllList.count(i)
+
+print(dictOutput)
+# [i for i in overAllList]
+
+
 
