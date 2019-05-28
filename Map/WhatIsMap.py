@@ -91,7 +91,9 @@ for i in overAllList:
     dictOutput[i] = overAllList.count(i)
 
 print(dictOutput)
-# [i for i in overAllList]
 
+
+# Here's the single line approach.
+print({i: overAllList.count(i) for i in overAllList})
 
 
