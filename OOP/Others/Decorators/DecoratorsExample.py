@@ -2,7 +2,7 @@
 def getName(name):
     def greetings():
         return "Hello "
-    print greetings() + name
+    print(greetings() + name)
     return greetings() + name
 
 
@@ -14,7 +14,7 @@ def my_decorator(some_function):
 
         some_function()
 
-        print("Something is happening after some_function() is called.")
+        print("Something i s happening after some_function() is called.")
 
     return wrapper
 
