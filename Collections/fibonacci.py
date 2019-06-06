@@ -1,3 +1,4 @@
+from functools import lru_cache
 
 # what is fibonacci series?
 
@@ -32,6 +33,8 @@ def fibonacci_first(nTimes):
 # here's the second solution
 
 fib_cache = {}
+
+
 def fibonacci_second(numberOfTimes):
     if numberOfTimes in fib_cache:
         return fib_cache[numberOfTimes]
@@ -65,23 +68,18 @@ def fibonacci_second(numberOfTimes):
 
 # Here's the third solution..
 
-from functools import lru_cache
-
 @lru_cache(maxsize=1000)
 def fibbonacci_third(nTimes):
-    if nTimes == 1:
-        return 1
-    elif nTimes == 2:
-        return 2
-    else:
-        return fibbonacci_third(nTimes - 1) + fibbonacci_third(nTimes - 2)
+    if nTimes == 1: return 1
+    elif nTimes == 2: return 2
+    else : return fibbonacci_third(nTimes - 1) + fibbonacci_third(nTimes - 2)
 
 
 for i in range(1, 30):
-    print(i , ":" , fibonacci_first(i))
+    print(i , ":", fibonacci_first(i))
 
 for i in range(1, 151):
-    print(i , ":" , fibonacci_second(i))
+    print(i, ":", fibonacci_second(i))
 
 for i in range(1, 151):
-    print(i , ":" , fibbonacci_third(i))
+    print(i, ":" ,fibbonacci_third(i))
