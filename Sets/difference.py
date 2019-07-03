@@ -58,8 +58,8 @@ __author__ = 'Sanjay'
 #  students.
 
 input()
-a=map(int,raw_input().split(" "))
+a=map(int, input().split(" "))
 input()
-b = map(int, raw_input().split(" "))
+b = map(int, input().split(" "))
 c = set(a) - set(b)
-print len(set(a).difference(b))
+print(len(set(a).difference(b)))
