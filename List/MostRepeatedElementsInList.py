@@ -18,7 +18,7 @@ import operator
 #             print("Most repeated item is",i)
 
 
-# current this function takes input as a list, to find maximum repeated elements in the list.
+# currently this function takes input as a list, to find maximum repeated elements in the list.
 def mostTrendingBrancAlternateSolution(userInputs):
     finalOp = {}
     for element in userInputs:
