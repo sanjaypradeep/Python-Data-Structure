@@ -12,9 +12,9 @@ class Person:
             friend.friends.append(self)
 
     def getFriends(self):
-        print len(self.friends)
+        print (len(self.friends))
         for i in self.friends:
-            print i
+            print (i)
 
 
 p1 = Person("David", "Wolber", "922-43-9873", "wolber@usfca.edu")
