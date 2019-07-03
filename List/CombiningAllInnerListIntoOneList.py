@@ -26,6 +26,7 @@ def genericSolutionWithoutUsingRecursive(inputList):
             outputArray.append(num)
     return outputArray
 
+
 if __name__ == '__main__':
 
     firstInputList = ['a', 'b', 'c', 'd']
