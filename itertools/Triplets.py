@@ -14,4 +14,8 @@ def getTriplets(inputArray):
         if x+y in squareArray.keys():
             print(squareArray[x], squareArray[y], squareArray[x+y])
 
-print(getTriplets(list(range(1, 100))))
+
+sampleArray = list(range(1,10,2))
+
+print(getTriplets(sampleArray))
+

@@ -5,10 +5,8 @@ from itertools import *
 # Task
 #
 # You are given a two lists A
-# A
-#  and B
-# B
-# . Your task is to compute their cartesian product A
+# A and B
+# Your task is to compute their cartesian product A
 # A
 # XB
 # B
@@ -24,8 +22,7 @@ from itertools import *
 # Note: A
 # A
 #  and B
-# B
-#  are sorted lists, and the cartesian product's tuples should be output in sorted order.
+# B are sorted lists, and the cartesian product's tuples should be output in sorted order.
 
 # Input Format
 
@@ -60,4 +57,5 @@ secondInput = list(map(int, input().split()))
 
 
 for i in list(product(firstInput, secondInput)):
-    print(i,end="")
+    print(i, end="")
+
