@@ -29,6 +29,12 @@ print(sampleNumbers)
 sampleNumbers.__delitem__(1) # 4356 will be removed, whose index value is 1
 print(sampleNumbers)
 
+
+# __setitem__ - inserting value (10) in it's (1) index place.
+sampleNumbers.__setitem__(1,10)
+print(sampleNumbers)
+
+
 # __eq__ - to compare two list and returns bool value (True or false)
 print(sampleNumbers.__eq__(animals)) # false
 
@@ -37,7 +43,6 @@ print(sampleNumbers.__format__('')) # '[13, 65, 4776, 4]'
 print(type(sampleNumbers.__format__(''))) # <class 'str'>
 
 
-seg = ""
 
 
 
