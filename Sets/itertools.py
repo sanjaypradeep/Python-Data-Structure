@@ -5,6 +5,6 @@ __author__ = 'Sanjay'
 from itertools import product
 a = [1,2]
 b = [3,4]
-s= tuple(product(a,b))
-for i in list(product(a,b)):
-    print i,
+s= tuple(product(a, b))
+for i in list(product(a, b)):
+    print(i, end="")
