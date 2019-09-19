@@ -37,6 +37,7 @@ print(sampleNumbers.__format__('')) # '[13, 65, 4776, 4]'
 print(type(sampleNumbers.__format__(''))) # <class 'str'>
 
 
+seg = ""
 
 
 
