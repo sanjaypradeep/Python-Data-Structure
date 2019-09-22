@@ -1,8 +1,8 @@
 # Encapsulation is nothing but Data Hiding
-# Example : A capsule tablet contains many times of chemicals, that's it's called as Capsule.
+# Example : A capsule tablet contains many types of chemicals, therefore it's called as a Capsule.
 
 class SampleClass(object):
-    numVariable = 3691
+    globalNumVariable = 3691
     globalStringVariable = "Some string.."
 
     b = 987 # b is a global variable
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     # But if you do still, want to bring the value outside the class. then follow the below line of code.
     # using objOfSampleClass, lets call two global variables
-    print(objOfSampleClass.numVariable) # 3691
+    print(objOfSampleClass.globalNumVariable) # 3691
     print(objOfSampleClass.globalStringVariable) #
 
     # At the time of object creation, we are creating three variables Isn't it? (check __init__ method())
