@@ -42,7 +42,7 @@ sampleSet.update([1, 2, 3, 'testing'])
 # TypeError: 'set' object does not support indexing
 
 
-# if you want to delete a element from the list, there're two possiblities,
+# if you want to delete a element from the set, there're two possiblities,
 # 1. discard
 # 2. remove
 
