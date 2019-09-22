@@ -34,13 +34,17 @@ print(sampleNumbers)
 sampleNumbers.__setitem__(1,10)
 print(sampleNumbers)
 
-
 # __eq__ - to compare two list and returns bool value (True or false)
 print(sampleNumbers.__eq__(animals)) # false
 
 # __format__ -
 print(sampleNumbers.__format__('')) # '[13, 65, 4776, 4]'
 print(type(sampleNumbers.__format__(''))) # <class 'str'>
+
+# Count
+sampleNumbers.extend([1,1,1,1,1,1,11,1,1,1,1,1,1])
+print("Totally there are ", sampleNumbers.count(1), " times 1 repeated inside the list")
+
 
 
 
