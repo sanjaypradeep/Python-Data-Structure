@@ -137,3 +137,12 @@ print (divide(5,2))
 # I am going to divide 5 and 2
 # 2.5
 
+
+def parentFun(func):
+    def internalFun():
+        print("inside internal")
+        func()
+    return internalFun
+
+
+parentFun(ordinary())
