@@ -23,9 +23,9 @@ print(result) # this will return an object.
 
 print(set(result)) # {8, 2, 4, 6}
 
-print(tuple(result)) # returns empty tuple as ()
+print(tuple(result)) # returns empty tuple as () - because when you contruct a tuple from a map object, then it returns empty tuple.
 
-print(list(result)) # returns empty list as []
+print(list(result)) # returns empty list as [] - because when you contruct a list from a map object, then it returns empty list.
 
 print(result) # map object
 
@@ -45,6 +45,8 @@ print(list(map(addingTwoNumber, firstT, secondT))) # output as - [5, 7, 9, 13]
 print(list(map(addingTwoNumber, firstT, list(secondT)))) # output as - [5, 7, 9, 13]
 
 # We can also use lambda expressions with map to achieve above result.
+# Here's the example,
+print(list(map(lambda x,y: x+y, firstT, secondT)))
 
 # Double all numbers using map and lambda
 
