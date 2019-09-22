@@ -20,8 +20,8 @@ class linked_list:
     # function to add a node at front
     def add_at_front(self, data):
         self.head = node(data=data, next=self.head)
-        # function to check whether the list is empty
 
+    # function to check whether the list is empty
     def is_empty(self):
         return self.head == None
 
