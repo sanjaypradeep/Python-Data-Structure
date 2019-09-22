@@ -11,7 +11,7 @@ mySet = {} # this isn't considered as empty set, type(mySet) --> will say it's a
 
 mySet = {'apple', 'banana'}
 
-print mySet[1] # this will throw error as "it doesn't support indexing" as mentioned in the description
+print(mySet[1]) # this will throw error as "it doesn't support indexing" as mentioned in the description
 
 # 2. get the elements out
 
