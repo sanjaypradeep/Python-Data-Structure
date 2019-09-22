@@ -1,6 +1,5 @@
 __author__ = 'Sanjay'
 
-# from Queue import Deque
 def palin(inputString):
 
     try:
