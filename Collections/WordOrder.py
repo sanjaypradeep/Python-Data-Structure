@@ -48,16 +48,18 @@ __author__ = 'Sanjay'
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 from collections import Counter
+def main():
+    n = int(input())
+    words = [input().strip() for _ in range(n)]
+    counts = Counter(words)
 
-n = int(raw_input())
-words = [raw_input().strip() for _ in range(n)]
-counts = Counter(words)
+    print(len(counts))
 
-print len(counts)
-
-for word in words:
-    derp = counts.pop(word, None)
-    if derp == None:
-        continue
-    else:
-        print derp, # comma stops print from ending with newline
+    for word in words:
+        derp = counts.pop(word, None)
+        if derp == None:
+            continue
+        else:
+            print(derp,end=' ') # comma stops print from ending with newline
+if __name__=='__main__':
+    main()
