@@ -44,11 +44,14 @@ __author__ = 'Sanjay'
 #
 # There are 3
 # 3
-#  distinct words. Here, "bcdef" appears twice in the input at the first and last positions. The other words appear once each. The order of the first appearances are "bcdef", "abcdefg" and "bcde" which corresponds to the output.
+#  distinct words. Here, "bcdef" appears twice in the input at the first and last positions. The other words appear \
+#  once each. The order of the first appearances are "bcdef", "abcdefg" and "bcde" which corresponds to the output.
 
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+
 from collections import Counter
-def main():
+
+
+def methodToExecute():
     n = int(input())
     words = [input().strip() for _ in range(n)]
     counts = Counter(words)
@@ -61,5 +64,7 @@ def main():
             continue
         else:
             print(derp,end=' ') # comma stops print from ending with newline
+
+
 if __name__=='__main__':
-    main()
+    methodToExecute()
