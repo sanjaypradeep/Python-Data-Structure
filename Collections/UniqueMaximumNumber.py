@@ -6,13 +6,14 @@ def testing(args):
         if args.count(i) == 1:
             uniq.append(i)
     if len(uniq) != 0:
-        print max(uniq)
+        print(max(uniq))
     else:
-        print "It seems, all the numbers are repeated!"
+        print("It seems, all the numbers are repeated!")
+
 
 if __name__ == '__main__':
     a=int(input())
-    b = list(raw_input())
+    b = list(input())
     while True:
         try:
             b.remove(" ")
@@ -24,5 +25,5 @@ if __name__ == '__main__':
             orgInput.append(int(i))
         else:
             pass
-    print orgInput
+    print(orgInput)
     testing(orgInput)
