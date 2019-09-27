@@ -1,5 +1,6 @@
 __author__ = 'Sanjay'
 
+
 def fa(n):
     # if n==1:
     #     return 1
@@ -19,7 +20,6 @@ def fac(n):
         resp = resp * i
 
     return resp
-
 
 
 if __name__ == '__main__':
