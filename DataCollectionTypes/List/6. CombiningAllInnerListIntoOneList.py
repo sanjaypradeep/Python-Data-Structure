@@ -30,9 +30,10 @@ def genericSolutionWithoutUsingRecursive(inputList):
 if __name__ == '__main__':
 
     firstInputList = ['a', 'b', 'c', 'd']
-    secondInputList = list(range(1, 4)) # [1,2,3]
-    firstInputList.append(secondInputList)
-    print(firstInputList)  # ['a', 'b', 'c', 'd', [1, 2, 3]]
+
+    firstInputList.append(list(range(1, 4)))                 # [1,2,3]
+    print(firstInputList)                                    # ['a', 'b', 'c', 'd', [1, 2, 3]]
+
     ob = singleList()
     # ob.appendingAllElementsInAList(firstInputList)
 
