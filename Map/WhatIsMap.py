@@ -41,7 +41,7 @@ secondT = (4, 5, 6, 9) # whose len is 4
 # here's the map calculation, map(<methodName>, param1, param2)
 print(list(map(addingTwoNumber, firstT, secondT))) # output as - [5, 7, 9, 13]
 
-# here the para1 is supplied as list, but still it works and gives the same output.
+# here the para2 is supplied as list, but still it works and gives the same output.
 print(list(map(addingTwoNumber, firstT, list(secondT)))) # output as - [5, 7, 9, 13]
 
 # We can also use lambda expressions with map to achieve above result.
