@@ -32,15 +32,27 @@ import pyqrcode
 
 def takeInputFromUser():
     givenInput = input("Enter the data : ")
-    print("As an output, you can expect a QR Code in .png format")
-    return givenInput
+    if givenInput:
+        print("As an output, you can expect a QR Code in .png format")
+        return givenInput
+    else:
+        print("Please input some data")
+        return None   
+
+def getFileNameFromUser():
+    import random
+    fileName = input("Enter the filename: ")
+    return fileName if fileName else str(random.randint(1,100))
 
 def constructQR():
     infoFromUser = takeInputFromUser()
-    fileName = infoFromUser + '.png'
-    output = pyqrcode.create(infoFromUser)
-    output.png(fileName, scale=6)
-    print("done")
-
+    if(infoFromUser):
+        output = pyqrcode.create(infoFromUser)
+        fileName = getFileNameFromUser()
+        output.png(fileName + '.png', scale=6)
+        print(fileName + ".png file got generated and saved in your local.")
+    else:
+        takeInputFromUser()    
+    
 if __name__ == '__main__':
     constructQR()
