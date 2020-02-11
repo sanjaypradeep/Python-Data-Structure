@@ -11,16 +11,22 @@ gold_rate = {
     }
 }
 
+def setTwoFour1G(priceToSet):
+    gold_rate['24K']['1g'] = priceToSet
+
+def setGoldPrice(K, g, price):
+    # if(K != '24K' or K != '22K'):
+    #     return "Values given for K, isn't accepted."
+    # if(g != '1g' or g != '8g'):
+    #     return "Values give for g, isn't accepted."
+    gold_rate[K][g] = price 
+
 def getDateFormat():
     import datetime
     todayDateInfo = datetime.datetime.now()   
     output= str(todayDateInfo.day) +'/' + str(todayDateInfo.strftime("%B")) + "/" + str(todayDateInfo.year) 
     print(output)
     return output
-
-
-
-
 
 import requests 
 from bs4 import BeautifulSoup 
@@ -36,24 +42,25 @@ tempData = table.get_text()
 
 
 allData = list(tempData.split(" "))
-# print(len(allData))
-# print(allData.count(''))
-# print(allData.count("\n"))
 
-test_list1 = [i for i in allData if i]
+listOfText = [i for i in allData if i]
 
-test_list = [i for i in test_list1 if i != '\n']
+finalList = [i for i in listOfText if i != '\n']
 #print(test_list)
 
-indexValue = test_list.index(getDateFormat()+'\n')
+indexValue = finalList.index(getDateFormat()+'\n')
 # print(indexValue)
 
-# goldRate24_1gram = test_list[indexValue+1]
+setGoldPrice('22K', '1g', finalList[indexValue+3])
+setGoldPrice('22K' , '8g', finalList[indexValue+4])
 
-gold_rate['24K']['1g'] =  test_list[indexValue+1]
-gold_rate['24K']['8g'] =  test_list[indexValue+2]
-gold_rate['22K']['1g'] =  test_list[indexValue+3]
-gold_rate['22K']['8g'] =  test_list[indexValue+4]
+setGoldPrice('24K', '1g', finalList[indexValue+1])
+setGoldPrice('24K', '8g', finalList[indexValue+2])
+
+# gold_rate['24K']['1g'] =  finalList[indexValue+1]
+# gold_rate['24K']['8g'] =  finalList[indexValue+2]
+# gold_rate['22K']['1g'] =  finalList[indexValue+3]
+# gold_rate['22K']['8g'] =  finalList[indexValue+4]
 
 print("24K Gold - 1 Gram price is " + gold_rate['24K']['1g'])
 
@@ -64,6 +71,4 @@ print("22K Gold - 1 Gram price is " + gold_rate['22K']['1g'])
 print("22K Gold - 8 Gram price is " + gold_rate['22K']['8g'])
 
 import time
-# time.sleep(15)
-
-import datetime
+time.sleep(15)
