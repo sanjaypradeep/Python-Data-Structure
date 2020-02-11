@@ -12,7 +12,14 @@ gold_rate = {
 }
 
 def getDateFormat():
-    pass
+    import datetime
+    todayDateInfo = datetime.datetime.now()   
+    output= str(todayDateInfo.day) +'/' + str(todayDateInfo.strftime("%B")) + "/" + str(todayDateInfo.year) 
+    print(output)
+    return output
+
+
+
 
 
 import requests 
@@ -38,11 +45,7 @@ test_list1 = [i for i in allData if i]
 test_list = [i for i in test_list1 if i != '\n']
 #print(test_list)
 
-todayDate = "11/February/2020\n"
-
-# print(todayDate in test_list);
-
-indexValue = test_list.index(todayDate)
+indexValue = test_list.index(getDateFormat()+'\n')
 # print(indexValue)
 
 # goldRate24_1gram = test_list[indexValue+1]
