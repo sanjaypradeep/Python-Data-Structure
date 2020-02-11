@@ -11,14 +11,7 @@ gold_rate = {
     }
 }
 
-def setTwoFour1G(priceToSet):
-    gold_rate['24K']['1g'] = priceToSet
-
 def setGoldPrice(K, g, price):
-    # if(K != '24K' or K != '22K'):
-    #     return "Values given for K, isn't accepted."
-    # if(g != '1g' or g != '8g'):
-    #     return "Values give for g, isn't accepted."
     gold_rate[K][g] = price 
 
 def getDateFormat():
@@ -56,11 +49,6 @@ setGoldPrice('22K' , '8g', finalList[indexValue+4])
 
 setGoldPrice('24K', '1g', finalList[indexValue+1])
 setGoldPrice('24K', '8g', finalList[indexValue+2])
-
-# gold_rate['24K']['1g'] =  finalList[indexValue+1]
-# gold_rate['24K']['8g'] =  finalList[indexValue+2]
-# gold_rate['22K']['1g'] =  finalList[indexValue+3]
-# gold_rate['22K']['8g'] =  finalList[indexValue+4]
 
 print("24K Gold - 1 Gram price is " + gold_rate['24K']['1g'])
 
