@@ -88,52 +88,29 @@ def connectToDB():
 
 def insertRecord(con):
     if con.is_connected():
-        # print("=======================================")
-        # print(todaysDateFormatToDB)
-        # print(gold_rate['24K']['8g'])
-        # print(gold_rate['24K']['1g'])
-        # print(gold_rate['22K']['8g'])
-        # print(gold_rate['22K']['1g'])
 
-        # sample = []
-        # sample.insert(0, todaysDateFormatToDB)
-        # sample.insert(1, gold_rate['24K']['8g'])
-        # sample.insert(2, gold_rate['24K']['1g'])
-        # sample.insert(3, gold_rate['22K']['8g'])
-        # sample.insert(4, gold_rate['22K']['1g'])
+        sample = []
+        sample.insert(0, todaysDateFormatToDB)
+        sample.insert(1, gold_rate['24K']['8g'])
+        sample.insert(2, gold_rate['24K']['1g'])
+        sample.insert(3, gold_rate['22K']['8g'])
+        sample.insert(4, gold_rate['22K']['1g'])
 
-        # print("finally...." , sample)
-        # print("=======================================")
+        workingQuery = "INSERT INTO `world`.`daily_gold_rates` (`todays_date`, `twentyFour_carot_eight_grams`,`twentyFour_carot_one_gram`, `twentyTwo_carot_eight_grams`, `twentyTwo_carot_one_gram` ) VALUES ('" + str(todaysDateFormatToDB) +"','"+ gold_rate['24K']['8g'] +"'," + "'"+gold_rate['24K']['1g']+ "'," + "'"+ gold_rate['22K']['8g'] +"',"+ "'" + gold_rate['22K']['1g'] +"'" +");" 
 
-        mySql_insert_query = """INSERT INTO `world`.`daily_gold_rates` (`todays_date`, 
-													`twentyFour_carot_eight_grams`, 
-													`twentyFour_carot_one_gram`, 
-													`twentyTwo_carot_eight_grams`, 
-													`twentyTwo_carot_one_gram` ) 
-                                VALUES ('2019-08-14', '33455', '4252', '31253', '4072');"""
-
-        something = "INSERT INTO `world`.`daily_gold_rates` (`todays_date`, `twentyFour_carot_eight_grams`,`twentyFour_carot_one_gram`, `twentyTwo_carot_eight_grams`, `twentyTwo_carot_one_gram` ) VALUES ('" + str(todaysDateFormatToDB) +"','"+ gold_rate['24K']['8g'] +"'," + "'"+gold_rate['24K']['1g']+ "'," + "'"+ gold_rate['22K']['8g'] +"',"+ "'" + gold_rate['22K']['1g'] +"'" +");" 
-
-        # print(something)
-        # time.sleep(10)
-
-        # something2 = "INSERT INTO `world`.`daily_gold_rates` (`todays_date`, `twentyFour_carot_eight_grams`,`twentyFour_carot_one_gram`,`twentyTwo_carot_eight_grams`,`twentyTwo_carot_one_gram`  ) VALUES (" +str(sample[0]) +',' + sample[1] +',' + sample[2]+','+ sample[3]+','+sample[4]+');'
-
-        # print("something2.. ", something2)
-        # time.sleep(10)
-
-        # something = "INSERT INTO `world`.`daily_gold_rates` (`todays_date`, `twentyFour_carot_eight_grams`, `twentyFour_carot_one_gram`, `twentyTwo_carot_eight_grams`, `twentyTwo_carot_one_gram` ) VALUES (" + todaysDateFormatToDB +");" 
-
+        #something3 = "INSERT INTO `world`.`daily_gold_rates` (`todays_date`,`twentyFour_carot_eight_grams`,`twentyFour_carot_one_gram`,`twentyTwo_carot_eight_grams`,`twentyTwo_carot_one_gram`) VALUES (" + "'" + sample[0] +"'," + "'" + sample[1] + "','" + sample[2] + "','" + sample[3] +"','" + sample[4]  +"');"                 
         cursor = con.cursor()
-        cursor.execute(something)
+        cursor.execute(workingQuery)
         con.commit()
         print(cursor.rowcount, "Record inserted successfully into Laptop table")
-        # con.close()
+        return True
 
 def disconnectDB(con):
         if (con.is_connected()):
             con.close()
             print("MySQL connection is closed")
+        else:
+            print("We tried, but it seems your connection is in active state! However it must be already closed.")
 
 connectionHook = connectToDB()
 insertData = insertRecord(connectionHook)
