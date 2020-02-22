@@ -112,6 +112,19 @@ def disconnectDB(con):
         else:
             print("We tried, but it seems your connection is in active state! However it must be already closed.")
 
+print("Connecting to your database..")
+time.sleep(5)
 connectionHook = connectToDB()
+print("collecting records to save..")
+time.sleep(3)
 insertData = insertRecord(connectionHook)
+print("Records are inserted in DB, can be used for Analytics purpose in future!")
+time.sleep(5)
+
 diconnect = disconnectDB(connectionHook)
+
+time.sleep(10)
+print("Good Bye!")
+
+time.sleep(3)
+
