@@ -14,6 +14,7 @@ gold_rate = {
 
 import requests 
 from datetime import date
+from datetime import datetime
 from bs4 import BeautifulSoup 
 
   
@@ -96,7 +97,19 @@ def insertRecord(con):
         sample.insert(3, gold_rate['22K']['8g'])
         sample.insert(4, gold_rate['22K']['1g'])
 
-        workingQuery = "INSERT INTO `world`.`daily_gold_rates` (`todays_date`, `twentyFour_carot_eight_grams`,`twentyFour_carot_one_gram`, `twentyTwo_carot_eight_grams`, `twentyTwo_carot_one_gram` ) VALUES ('" + str(todaysDateFormatToDB) +"','"+ gold_rate['24K']['8g'] +"'," + "'"+gold_rate['24K']['1g']+ "'," + "'"+ gold_rate['22K']['8g'] +"',"+ "'" + gold_rate['22K']['1g'] +"'" +");" 
+        # Check current time, act accordingly. 
+        curremtTime = datetime.now()
+        curremtTime = curremtTime.strftime("%H:%M")
+        print(curremtTime)
+
+        if (curremtTime == "12:34"):            
+            infoSource = "Scheduled Job"
+        else:
+            infoSource = "Manual Trigger"
+
+        workingQuery = "INSERT INTO `world`.`daily_gold_rates` (`todays_date`, `twentyFour_carot_eight_grams`,`twentyFour_carot_one_gram`, `twentyTwo_carot_eight_grams`, `twentyTwo_carot_one_gram`, `info_source` ) VALUES ('" + str(todaysDateFormatToDB) +"','"+ gold_rate['24K']['8g'] +"'," + "'"+gold_rate['24K']['1g']+ "'," + "'"+ gold_rate['22K']['8g'] +"',"+ "'" + gold_rate['22K']['1g'] +"','" + infoSource +"');" 
+
+        print(workingQuery)        
 
         #something3 = "INSERT INTO `world`.`daily_gold_rates` (`todays_date`,`twentyFour_carot_eight_grams`,`twentyFour_carot_one_gram`,`twentyTwo_carot_eight_grams`,`twentyTwo_carot_one_gram`) VALUES (" + "'" + sample[0] +"'," + "'" + sample[1] + "','" + sample[2] + "','" + sample[3] +"','" + sample[4]  +"');"                 
         cursor = con.cursor()
@@ -127,4 +140,3 @@ time.sleep(10)
 print("Good Bye!")
 
 time.sleep(3)
-
