@@ -2,6 +2,8 @@
 # Example : A capsule tablet contains many types of chemicals, therefore it's called as a Capsule.
 
 class SampleClass(object):
+
+    # below two global variables are nothing but a class attributes.
     globalNumVariable = 3691
     globalStringVariable = "Some string.."
 
@@ -9,9 +11,9 @@ class SampleClass(object):
     _b = 654 # can be called as protected
     __b = 321 # private
 
-    # constrcutor.
+    # prameterized constrcutor, why do we call as parameterized constructor?
     def __init__(self):
-        self.a = 123    # OK to access directly
+        self.a = 123    # OK to access directly only by object.
         self._a = 456   # should be considered protected
         self.__a = 789  # considered private, name mangled , more secure Data
 
@@ -27,9 +29,10 @@ class SampleClass(object):
     # Below method (which is inside the class) is considered as Private method(used double underscore
     # before the method name.
     def __getMoreSecureDataMethod(self):
-        print(self.__a)
+        print(self.__a) #directlt printing self.__a private member variable.
 
 if __name__ == '__main__':
+
     # Lets first try to create an object of SampleClass.
     objOfSampleClass = SampleClass() # object will get created here.
     m = SampleClass() # creating another object for the same class (reason : n number of obj can be created for a class)
@@ -39,7 +42,7 @@ if __name__ == '__main__':
     print(objOfSampleClass._b)
     # If you want to bring private value/variable outside the class, normally its not possible.
     # Below is going to throw an error (uncomment and execute it)
-    print(objOfSampleClass.__b)
+    # print(objOfSampleClass.__b)
 
     # But if you do still, want to bring the value outside the class. then follow the below line of code.
     # using objOfSampleClass, lets call two global variables
