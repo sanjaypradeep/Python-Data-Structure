@@ -1,19 +1,57 @@
 
-class A(object):
+class Father(object):
 
     def __init__(self, a, b):
         self.a = a
         self.b = b
 
-    def m1(self):
-        print "inside A"
+    def role(self):
+        print("Father of two childres")
 
-class B(A):
+    def occupation(self):
+        print("Father is working in Bank")
 
-    def __init__(self):
+    def travellingIn(self):
+        print("As a father, I use Audi Car to go office")
+
+class Mother(Father):
+
+    def __init__(self,):
         print ("b constructor")
-    # def m1(self):
-    #     print "inside b"
 
-bb = B()
-bb.m1()
+    def role(self):
+        print("Mother of Two childrens")
+    
+    def occupation(self):
+        print("Home maker")
+
+    def whatCooking(self):
+        print("Mother is preparing Pasta!")
+
+# creating an object of mother.
+instanceOfMother = Mother()
+
+instanceOfMother.role()
+
+instanceOfMother.occupation()
+
+instanceOfMother.whatCooking()
+
+instanceOfMother.travellingIn()
+
+
+# creating an object of Father
+
+fatherInstance = Father(10,20)
+
+fatherInstance.role()
+
+fatherInstance.travellingIn()
+
+fatherInstance.occupation()
+
+fatherInstance.whatCooking()
+
+
+# how about this?
+print(bb.a)
