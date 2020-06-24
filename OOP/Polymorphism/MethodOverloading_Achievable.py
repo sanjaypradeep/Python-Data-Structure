@@ -6,7 +6,7 @@
 from multipledispatch import dispatch 
   
 #passing one parameter 
-@dispatch(int,int) # this is called as `property`
+@dispatch(int,int) # this is called as `Decorator`
 def product(first,second): 
     result = first*second 
     print(result); 
