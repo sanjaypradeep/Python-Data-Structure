@@ -23,7 +23,16 @@ except TypeError:
 finally: 
     # this block is always executed  
     # regardless of exception generation. 
-    print('This is always executed') 
+    print('This is always executed')
+    for num in list(range(0,10)):
+      if num%2 ==0:
+        continue
+      print(num)
+
+# have you heard about break/continue
+
+# by default continue will not support inside finally 
+# from 3.8.3, continue is supported inside finally
 
 
 
