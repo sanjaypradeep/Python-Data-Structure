@@ -13,25 +13,13 @@ cartInstance = Cart()
 
 def getUserInput(fromWhichMenu):
 
+    inputMessage = ''
     if fromWhichMenu == "fromMainMenu":
-        try:
-            choice = input("Please enter your choice : ").strip()
-        except ValueError:
-            print("That's not an int!")
-        return choice
+        inputMessage = "Please enter your choice : "
     elif fromWhichMenu == "fruitMenu":
-        try:
-            choice = input("Please enter your choice : ").strip()
-        except ValueError:
-            print("That's not an int!")
-        return choice
+        inputMessage = "Please enter your choice : "
     elif fromWhichMenu == "numbers":
-        try:
-            choice = input("how many you need? ").strip()
-        except ValueError:
-            print("That's not an int!")
-    
-        return choice
+        inputMessage = "how many you need? "
     elif fromWhichMenu == "addMoreItems":
         try:
             choice = input("Do you want to add more items to your cart? Y or N ").strip()
@@ -50,6 +38,13 @@ def getUserInput(fromWhichMenu):
                 return False
         except ValueError:
             print("That's not a valid password!")
+    
+    try:
+        choice = input(inputMessage).strip()
+    except ValueError:
+        print("That's not an int!")
+
+    return choice 
 
 
 
@@ -127,17 +122,16 @@ if __name__ == "__main__":
                 showAvailableFruits()
                 choice = getUserInput("fruitMenu")
                 buyFruit(choice)
-                # getUserInput("addMoreItems")
             else:
                 displayFruitMenu()
         elif userChoice == '3':
             cartItems = cartInstance.showCart()
             print("Currently you have below items in your cart, ")
             for itemName, itemCount in cartItems.items():                
-                print(itemName + "-" + str(itemCount))        
+                print(itemName + "-" + str(itemCount))   
+            time.sleep(7)     
         elif userChoice == '4':
             checkOutCart()
-           
             print("Enjoy Shopping at Ram's Fruit Store!\n")
             break
         elif userChoice == '5':
