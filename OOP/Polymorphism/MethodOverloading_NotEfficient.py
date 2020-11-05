@@ -4,6 +4,7 @@
 '''
 
 # Function to take multiple arguments 
+# *args is a list [1,2,3...]
 def add(datatype, *args): 
   
     # if datatype is int 
@@ -28,7 +29,24 @@ def add(datatype, *args):
 
 
 # Integer 
-add('int', 5, 6) 
+add('int', 5, 6,101,203,4354,54,65,76,4,6567,87,554,65,734,34,45,56,767,778) 
   
 # String 
-add('str', 'Hi ', 'Geeks') 
+add('str', 'Hi ', 'Geeks', "ram", "all", 'the', 'best') 
+
+
+class sampleclass():
+
+    def __init__(self, *args):
+        self.x = args
+    
+
+    def showMe(self):
+        print(self.x)
+
+
+ramObj = sampleclass(10,20,30,'Sanjay')
+ramObj.showMe()
+
+
+

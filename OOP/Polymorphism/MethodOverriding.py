@@ -1,5 +1,5 @@
 
-class Father(object):
+class Father():
 
     def __init__(self, a, b):
         self.a = a
@@ -18,7 +18,7 @@ class Mother(Father):
 
     def __init__(self,):
         print ("b constructor")
-
+    
     def role(self):
         print("Mother of Two childrens")
     
@@ -27,6 +27,13 @@ class Mother(Father):
 
     def whatCooking(self):
         print("Mother is preparing Pasta!")
+
+
+class Son(Father, Mother):
+    pass
+
+class Son(Mother):
+    pass
 
 # creating an object of mother.
 instanceOfMother = Mother()
@@ -50,8 +57,4 @@ fatherInstance.travellingIn()
 
 fatherInstance.occupation()
 
-fatherInstance.whatCooking()
-
-
-# how about this?
-print(bb.a)
+fatherInstance.whatCooking() ## this will throw error
