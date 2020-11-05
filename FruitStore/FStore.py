@@ -1,7 +1,20 @@
 import time, sys
 
-class FStore:
+class Cart:
+    def __init__(self):
+        self.items = {}
 
+    def addToCart(self,fruitName, quantity):
+        self.items[fruitName] = quantity
+
+    def removeFromCart(self,itemindex):
+        self.items.pop(itemindex)
+
+    def showCart(self):
+        return self.items
+
+
+class FStore:
 
     def __init__(self, stock={}):
         """
@@ -13,27 +26,18 @@ class FStore:
         """
         Displays the fruits currently available for purchase in the store.
         """
-
-        # for fruits, quantity in self.stock.items():
-        #     print(" We currently have {} {} in store".format(quantity, fruits), end="\n")
-        
-        # return None
-
-        # Sanjay's code
         for fruits, quantity in self.stock.items():
             print("we have " + str(quantity) +  " of " + fruits)
-
         return '\n'
     
     def getStockFromStore(self):
         return self.stock
     
     def listOfFruits(self):
-        # self.Fruits = [fruits for fruits in self.stock.keys()]
-        # return self.Fruits
-
-        # Sanjay's code
-        return list(self.stock.keys())
+        op = {}
+        for key, value in self.stock.items():
+            op[value['id']] = [key, value['price']]
+        return op
             
 
     def timeDelay(self):
@@ -43,23 +47,30 @@ class FStore:
     def callExit(self):
         self.exit = sys.exit(0)
         return self.exit
+    
+    def getFruitsIDs(self):
+        fID = []
+        for key, value in self.stock.items():
+            fID.append(value['id'])
+        return fID
 
-    def numberOfFruits(self, number):
+    def getAvailableCountForFruit(self, fruitID):
+        for key,value in self.stock.items():
+            if int(fruitID) in list(value.values()):
+                # print("availab count is ", list(value.values())[0] )
+                return list(value.values())[0]
 
-        # if number <= 0:
-        #     print("Number of fruits should be positive!")
-        #     return None 
-        # elif n > self.stock.values()[0]
-        pass
+    def getFruitName(self, fruitID):
+        for fruitName,fruitInfo in self.stock.items():
+            if int(fruitID) in list(fruitInfo.values()):
+                return fruitName
 
-    def cart(self):
-        # cart logic
-        pass
+    def updateStock(self, fruitName, quantity):
+        fruitInfo = self.stock[fruitName]
+        fruitInfo['availableCount'] = fruitInfo['availableCount'] - quantity
+        # print(self.stock)
 
-
-
-# TODO: 3 - crate a class called ShoppingCart
-# addToCart
-# ṛemoveFromCart
-# getListOfItemsFromCart
-
+    def getFruitPrice(self, fruitName):
+        for fn, value in self.stock.items():
+            if fruitName == fn:
+                return value['price']

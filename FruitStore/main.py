@@ -1,13 +1,15 @@
 from FStore import FStore
+from FStore import Cart
+import time
+import getpass
 
-# TODO 1 - get stock from reading a json file. 
-dict = {'Apple':100, 'Banana': 100, 'Cherry': 100}
-# Write a function to read stock json file
-# function should return json info which is there in the file.
+import json
+def getAvilableStock():
+    stockInfo = open("C:\\Users\\sanja\\Documents\\GitHub\\Python-Data-Structure\\FruitStore\\stock.json", "r")
+    return json.load(stockInfo)
 
-
-# TODO 2 - pass the return of above function, to open your store
-openStore = FStore(dict) # you cannot open a store without stock.
+openStore = FStore(getAvilableStock())
+cartInstance = Cart()
 
 def getUserInput(fromWhichMenu):
 
@@ -30,77 +32,119 @@ def getUserInput(fromWhichMenu):
             print("That's not an int!")
     
         return choice
-    elif fromWhichMenu == "addOrRemove" :
+    elif fromWhichMenu == "addMoreItems":
         try:
-            choice = input("Is there anything you want to add or remove? Y or N ").strip()
-            if choice == "Y":
+            choice = input("Do you want to add more items to your cart? Y or N ").strip()
+            if choice == "Y" or choice == "y" or choice == "yes" or choice == "YES":
                 return True
             else:
                 return False
         except ValueError:
             print("That's not an int!")
+    elif fromWhichMenu == "adminStuff":
+        try:
+            choice = getpass.getpass("Enter admin password")
+            if choice == "admin123":
+                return True
+            else:
+                return False
+        except ValueError:
+            print("That's not a valid password!")
 
 
 
 def displayMainMenu():
     print("""
-    ====== Fruit Shop =======
-    1. Display available Stocks
-    2. Buy Fruits
-    3. Get Total
+    1. Show available fruits        
+    2. Buy Fruits                   
+    3. Show Cart
     4. Checkout
     5. Exit
+    6. Display available Stocks (only store admin can access)
     """)
+
+def addMoreItems():
+    if (getUserInput("addMoreItems")):
+        displayFruitMenu()
+        choice = getUserInput("fruitMenu")
+        return choice
+    else:
+        print("purchase done")
+        
 
 def displayFruitMenu():
     for i in enumerate(openStore.listOfFruits(), start=1):
         print(i[0], i[1])
 
-def shoppingCart():
-    pass
+def billFormat(billObj):
+    for fruitName, price in billObj.items():
+        print(fruitName + " - " + str(price))
 
-def storeOpens():
-    # while True:
-    cart = {}      
-    displayMainMenu()
-    choice = getUserInput("fromMainMenu")
+    print("Total Bill amount to pay " + str(sum(billObj.values())) + " Rupees \n")
 
-    if choice == '1':
-        openStore.displayStock()
-        print("\n please select from above available stock", end="\n")
-    elif choice == '2':
-        print("\n What do you want to buy?\n")
-        displayFruitMenu()
-        choice = getUserInput("fruitMenu")
 
-        if choice == '1': 
-            availableStock = openStore.getStockFromStore()
-            count = int(getUserInput("numbers"))
+def checkOutCart():
+    billMap = {}
+    cartItems = cartInstance.showCart()
+    for fn,count in cartItems.items():
+        fruitPrice = openStore.getFruitPrice(fn)
+        billMap[fn] = fruitPrice * count
+    billFormat(billMap)
 
-            if count  <= availableStock['Apple']:
-                cart['Apple'] = count
-                availableStock['Apple'] = availableStock['Apple'] - count
-                print(availableStock)
+def showAvailableFruits():
+    availableFruits = openStore.listOfFruits()
+    print("Here's the available fruits, happy purchasing\n")
+    for id, fruit in availableFruits.items():
+        print(str(id) + " - " + fruit[0] + "(each " + fruit[0] + " cost " + str(fruit[1]) + " Rupees)")   
 
-            print("Here's your items in cart  , ", cart)
-            # wannaBuyMore = getUserInput("addOrRemove")
-            # if (wannaBuyMore):
-            #     fruitChoice = getUserInput("fruitMenu")
+def buyFruit(fruitId):
+    if int(fruitId) in openStore.getFruitsIDs():                
+        fruitCount = int(getUserInput("numbers"))
+        if fruitCount  <= openStore.getAvailableCountForFruit(fruitId):
+            cartInstance.addToCart(openStore.getFruitName(fruitId), fruitCount)
+            openStore.updateStock(openStore.getFruitName(fruitId), fruitCount)
 
-            # else:
-            #     print("Done")
-
-            
-        elif choice == '2':
-            pass
-        elif choice == '3':
-            pass            
-
-    elif choice == 5:
-        pass          
+            print(str(fruitCount) + " " +openStore.getFruitName(fruitId) + " added to your cart \n")
+        else:
+            print("The count you entered is either exceeding or we nearing out of stock soon")
     else:
-        print("Invalid input. Please enter number between 1-5 ")
+        print("ID which's entered isn't matching with any fruits which we have!")
 
 
 if __name__ == "__main__":
-    storeOpens()
+    
+    while True:
+        displayMainMenu()
+        userChoice = getUserInput("fromMainMenu")
+
+        if userChoice == '1':
+            showAvailableFruits()
+        elif userChoice == '2':
+            showAvailableFruits()
+            choice = getUserInput("fruitMenu")
+            buyFruit(choice)
+            if(getUserInput("addMoreItems")):
+                showAvailableFruits()
+                choice = getUserInput("fruitMenu")
+                buyFruit(choice)
+                # getUserInput("addMoreItems")
+            else:
+                displayFruitMenu()
+        elif userChoice == '3':
+            cartItems = cartInstance.showCart()
+            print("Currently you have below items in your cart, ")
+            for itemName, itemCount in cartItems.items():                
+                print(itemName + "-" + str(itemCount))        
+        elif userChoice == '4':
+            checkOutCart()
+           
+            print("Enjoy Shopping at Ram's Fruit Store!\n")
+            break
+        elif userChoice == '5':
+            break 
+        elif userChoice == '6':
+            if(getUserInput("adminStuff")):
+                openStore.displayStock()
+                break
+        else:
+            print("Invalid input. Please enter number between 1-6 ")

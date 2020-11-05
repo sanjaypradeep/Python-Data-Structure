@@ -1,6 +1,22 @@
 {
-         "Apple": 100,
-         "Banana": 70,
-         "Cherry": 23,
-         "orange": 254
+         "Apple": {
+             "availableCount": 100,
+             "id" : 1001,
+             "price": 12
+         },
+         "Banana": {
+            "availableCount": 67,
+            "id" : 1002,
+            "price": 15
+        },
+         "Cherry": {
+            "availableCount": 23,
+            "id" : 1005,
+            "price": 30
+        },
+         "orange": {
+            "availableCount": 76,
+            "id" : 1009,
+            "price": 10
+        }
      }
