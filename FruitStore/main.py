@@ -2,10 +2,11 @@ from FStore import FStore
 from FStore import Cart
 import time
 import getpass
+import logging
 
 import json
 def getAvilableStock():
-    stockInfo = open("C:\\Users\\sanja\\Documents\\GitHub\\Python-Data-Structure\\FruitStore\\stock.json", "r")
+    stockInfo = open(r"FruitStore\stock.json", "r")
     return json.load(stockInfo)
 
 openStore = FStore(getAvilableStock())
@@ -17,7 +18,7 @@ def getUserInput(fromWhichMenu):
     if fromWhichMenu == "fromMainMenu":
         inputMessage = "Please enter your choice : "
     elif fromWhichMenu == "fruitMenu":
-        inputMessage = "Please enter your choice : "
+        inputMessage = "Please enter fruit id : "
     elif fromWhichMenu == "numbers":
         inputMessage = "how many you need? "
     elif fromWhichMenu == "addMoreItems":
@@ -119,9 +120,10 @@ if __name__ == "__main__":
             choice = getUserInput("fruitMenu")
             buyFruit(choice)
             if(getUserInput("addMoreItems")):
-                showAvailableFruits()
-                choice = getUserInput("fruitMenu")
-                buyFruit(choice)
+                for i in range(len(openStore.giveAvailableFruitsInStock())):
+                    showAvailableFruits()
+                    choice = getUserInput("fruitMenu")
+                    buyFruit(choice)
             else:
                 displayFruitMenu()
         elif userChoice == '3':
