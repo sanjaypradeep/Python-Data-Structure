@@ -7,7 +7,7 @@ def square(x):
 
 
 if __name__ == "__main__":
-    pool = Pool(processes=2)
+    pool = Pool(processes=1)
     for i in range(100):
         print(square(i),)
     print(pool.map(square, range(100)))
