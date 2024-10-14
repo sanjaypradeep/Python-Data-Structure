@@ -37,8 +37,7 @@ class FStore:
         op = {}
         for key, value in self.stock.items():
             op[value['id']] = [key, value['price']]
-        return op
-            
+        return op       
 
     def timeDelay(self):
         self.time = time.sleep(5)
@@ -74,3 +73,16 @@ class FStore:
         for fn, value in self.stock.items():
             if fruitName == fn:
                 return value['price']
+
+    def giveAvailableFruitsInStock(self):
+        op = []
+        for fn, fInfo in self.stock.items():
+            if fInfo['availableCount'] > 0:
+                op.append(fn)
+        return op
+    
+    def showAvailableFruits(self):
+        availableFruits = self.listOfFruits()
+        print("Here's the available fruits, happy purchasing\n")
+        for id, fruit in availableFruits.items():
+            print(str(id) + " - " + fruit[0] + "(each " + fruit[0] + " cost " + str(fruit[1]) + " Rupees)")

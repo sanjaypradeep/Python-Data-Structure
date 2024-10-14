@@ -8,3 +8,7 @@ myDict = {'name': 'AnyName', 'id': 123, 'info': 'value of id not neccessarily ne
 print(myDict) # Output: {'name': 'AnyName', 'id': 123, 'info': 'value of id not neccessarily need to be string since it has integer as numbers'}
 
 print(myDict.keys()) #Output: dict_keys(['name', 'id', 'info'])
+
+
+
+from collections import Counter

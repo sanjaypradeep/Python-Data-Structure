@@ -15,15 +15,29 @@ __author__ = 'Sanjay'
 
 
 #The above information gives you clear understanding on Stacks Predefined functions.
-class Stack:
-    def __init__(self):
+class Stack(object):
+
+    """ A stack is an abstract data type that serves as a collection of
+    elements with two principal operations: push() and pop(). push() adds an
+    element to the top of the stack, and pop() removes an element from the top
+    of a stack. The order in which elements come off of a stack are
+    Last In, First Out (LIFO).
+    https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+    """
+    def __init__(self, defaultLimit = 10):
         self.items = []
+        self.limit = defaultLimit
 
     def push(self, newItem):
+        if len(self.items) >= self.limit:
+            raise StackOverflowError
         self.items.append(newItem)
 
     def pop(self):
-        self.items.pop()
+        if self.items:
+            return self.items.pop()
+        else:
+            raise IndexError("pop from an empty stack")
 
     def isEmpty(self):
         return self.items == []
@@ -32,7 +46,7 @@ class Stack:
         return len(self.items)
 
     def show(self):
-        print self.items
+        print(self.items)
         return self.items
 
     def peek(self):
@@ -40,6 +54,9 @@ class Stack:
 
     def size(self):
         return len(self.items)
+
+class StackOverflowError(BaseException):
+    pass
 
 
 if __name__ ==  '__main__':

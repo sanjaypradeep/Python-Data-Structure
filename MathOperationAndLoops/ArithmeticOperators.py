@@ -42,10 +42,13 @@ __author__ = 'Sanjay'
 # 3?2?13?2?1
 # 3?2?6
 
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-a = int(raw_input())
-b = int(raw_input())
+if __name__ == '__main__':
+    a = int(input("Enter your first number: "))
+    b = int(input("Enter your second number: "))
+    if (a !='' or b != ''):
+        print("Addition of ",a, " and ", b, "is", a+b)
+        print("Subraction of ",a, " and ", b, "is", a-b)
+        print("Product of 1",a, " and ", b, "is", a*b)
+    
+    
 
-print a+b
-print a-b
-print a*b

@@ -35,8 +35,6 @@ test_list1 = [i for i in allData if i]
 
 test_list = [i for i in test_list1 if i != '\n']
 
-#todayDate = "11/February/2020\n"
-
 dateObj = date.today()
 
 todayDate = dateObj.strftime("%d") + "/" + dateObj.strftime("%B") + "/" + dateObj.strftime("%Y") + "\n" 

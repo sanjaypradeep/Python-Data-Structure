@@ -29,23 +29,7 @@ def getUserInput():
     inputList = inputList.split(" ")
 
     if inputList:
-        for value in inputList:
-            # try:
-            #     if isinstance(int(value),int):
-            #         listOfNum.append(int(value))
-            #         continue
-            #     if isinstance(float(value),float):
-            #         listOfNum.append(float(value))
-            #         continue
-            #     # if type(int(value)) == int: 
-            #     #     listOfNum.append(int(value))
-            #     #     continue
-            #     # if type(int(float(value))) == int:
-            #     #     listOfNum.append(int(float(value)))
-            #     #     continue
-            # except ValueError:
-            #     pass
-            
+        for value in inputList:            
             if '.' in value:
                 # possible that, value can be a floating number or a sentence with full stop.
                 try:

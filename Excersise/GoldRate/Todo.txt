@@ -1,0 +1,12 @@
+1. Store not only date, but also time needs to be stored - Done
+2. Implementation of graph. 
+3. ask user for date, wait for 10 seconds, within 10 seconds if user gives input as dd/mm/yyy then find the gold rate for that date and store that in DB
+4. if user didn't give any input within 10 seconds, proceed finding gold rate for today's date, display it and store in DB
+5. all hard coded values inside .py file should be in a separate config or constant file.
+6. rename the file
+7. during schedule task - always check wether existing date data is available in DB, if available, find it's source info, inform the user saying "record already exist in DB, user can check there if needed"  //if record says manually triggered, then proceed finding gold rate and store in DB 
+8. if existing date data shows source info as "shceduled", then inform user data is already present in DB, ask yes or no, whether to store one more record in DB
+9. Get Silver Rate as well
+10. Get gold rates for gulf countries as well.
+11. Get gold rates for US as well.
+12. Refactor the Dubai/USA and India Data in a single function, passing URL as parameter.

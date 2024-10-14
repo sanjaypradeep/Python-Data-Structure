@@ -1,19 +1,25 @@
 from FStore import FStore
 from FStore import Cart
+from log import Log
 import time
 import getpass
 import logging
-
 import json
+logging.basicConfig(filename="general.log", 
+                    format='%(asctime)s %(message)s', 
+                    datefmt='%m/%d/%Y %I:%M:%S %p')
+
 def getAvilableStock():
     stockInfo = open(r"FruitStore\stock.json", "r")
+    logging.warning("1.0 Stock Downloaded")
+    Log.registerWarning("Stock downloaded ....... :)")
     return json.load(stockInfo)
 
 openStore = FStore(getAvilableStock())
 cartInstance = Cart()
 
-def getUserInput(fromWhichMenu):
 
+def getUserInput(fromWhichMenu):
     inputMessage = ''
     if fromWhichMenu == "fromMainMenu":
         inputMessage = "Please enter your choice : "
@@ -45,11 +51,13 @@ def getUserInput(fromWhichMenu):
     except ValueError:
         print("That's not an int!")
 
+    logging.warning("User Action: " + choice)
     return choice 
 
 
 
 def displayMainMenu():
+    logging.warning("Displayed Main Menu to the user!")
     print("""
     1. Show available fruits        
     2. Buy Fruits                   
@@ -77,14 +85,17 @@ def billFormat(billObj):
         print(fruitName + " - " + str(price))
 
     print("Total Bill amount to pay " + str(sum(billObj.values())) + " Rupees \n")
+    logging.warning("Total Bill amount to pay " + str(sum(billObj.values())) + " Rupees \n")
 
 
 def checkOutCart():
     billMap = {}
     cartItems = cartInstance.showCart()
+    logging.warning("Checking out items from cart - " + str(cartItems) + " in cart")
     for fn,count in cartItems.items():
         fruitPrice = openStore.getFruitPrice(fn)
         billMap[fn] = fruitPrice * count
+    logging.warning("Preparing bill..")
     billFormat(billMap)
 
 def showAvailableFruits():
@@ -94,6 +105,8 @@ def showAvailableFruits():
         print(str(id) + " - " + fruit[0] + "(each " + fruit[0] + " cost " + str(fruit[1]) + " Rupees)")   
 
 def buyFruit(fruitId):
+    if fruitId == '':
+        return 0
     if int(fruitId) in openStore.getFruitsIDs():                
         fruitCount = int(getUserInput("numbers"))
         if fruitCount  <= openStore.getAvailableCountForFruit(fruitId):
@@ -101,8 +114,9 @@ def buyFruit(fruitId):
             openStore.updateStock(openStore.getFruitName(fruitId), fruitCount)
 
             print(str(fruitCount) + " " +openStore.getFruitName(fruitId) + " added to your cart \n")
+            logging.warning(str(fruitCount) + " " +openStore.getFruitName(fruitId) + " added to your cart")
         else:
-            print("The count you entered is either exceeding or we nearing out of stock soon")
+            print("The count you entered is either exceeding or we nearing out of stock soon")            
     else:
         print("ID which's entered isn't matching with any fruits which we have!")
 
@@ -129,6 +143,7 @@ if __name__ == "__main__":
         elif userChoice == '3':
             cartItems = cartInstance.showCart()
             print("Currently you have below items in your cart, ")
+            logging.warning("Showing cart to user, available item/s is/are - " +  str(cartItems))
             for itemName, itemCount in cartItems.items():                
                 print(itemName + "-" + str(itemCount))   
             time.sleep(7)     

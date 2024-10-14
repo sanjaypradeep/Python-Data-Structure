@@ -6,7 +6,7 @@ Errors detected during execution are called exceptions, if a statement or expres
 
 '''
 
-# print(1/0) # Syntactically it's right, but do you think this will execute?
+print(1/0) # Syntactically it's right, but do you think this will execute?
 
 # print(name) # have we declared/defined before this line of code?
 
@@ -15,7 +15,7 @@ Errors detected during execution are called exceptions, if a statement or expres
 # print('2' + 5) 
 
 
-# To overcome the aboev examples, I'm creating method, which handles the exeptions in it. 
+# To overcome the above examples, I'm creating method, which handles the exeptions in it. 
 
 # First example
 
@@ -23,7 +23,7 @@ def division():
     try:
         print(1/0)
     except ZeroDivisionError:
-        print("why are you trying divide a natural number with 0?")
+        print("why are you trying to divide a natural number with 0?")
     except ValueError:
         print("Value error man..")
     except TimeoutError:
@@ -45,8 +45,10 @@ def showName():
     except NameError:
         print("You haven't defined any such variable btw")
     # Stlyish way is..
-    except (RecursionError,NameError,TypeError, ZeroDivisionError):
+    except (RecursionError,NameError,TypeError, ZeroDivisionError) as e:
         print("I catched.")
+        print("Unforu.. user has tried this, blah ")
+        # logger.log(e.messages)
         pass
 
 showName()
@@ -58,8 +60,11 @@ def addValues():
         print('2' + 'Sanjay' + 1232)
     # except TypeError:
     #     print("I don't support this type.")
-    except Exception:
-        print("Master guy says, Something went wrong inside the code.")
+    # except Exception:
+    #     print("Master guy says, Something went wrong inside the code.")
+    #     print("ERROR_CODE_SYMC_PO@$#:5533636")
+    except SanjayException:
+        print("Something")
 
 addValues()
 
@@ -74,7 +79,7 @@ exceptions that our program raises in a separate file. Many standard modules do 
 exceptions separately as exceptions.py or errors.py (generally but not always).
 
 
-ser-defined exception class can implement everything a normal class can do, but we generally make them simple and concise. 
+user-defined exception class can implement everything a normal class can do, but we generally make them simple and concise. 
 Most implementations declare a custom base class and derive others exception classes from this base class. 
 '''
 
@@ -82,10 +87,22 @@ Most implementations declare a custom base class and derive others exception cla
 class SanjayException(Exception):    
     pass
 
+import collections
+import ExceptionalHandling
+
+# class RamException():
+    
+#     def m1(self):
+#         ExceptionalHandling.ForGoodUnderstanding
 
 def evenOrOdd(number):
     if type(number) is not int:
         raise(SanjayException("input parameter is not in right format"))
+    
+    # if (number % 2 == 0):
+    #     return True
+    # else:
+    #     return False
     return True if number %2 ==0 else False
 
 evenOrOdd('Sanjay')
@@ -107,6 +124,10 @@ class ValueTooLargeError(Error):
     """Raised when the input value is too large"""
     pass
 
+class RamsException1010(ZeroDivisionError):
+    pass
+
+
 
 # you need to guess this number
 gloal_lucky_number = 10
@@ -126,6 +147,9 @@ while True:
     except ValueTooLargeError:
         print("This value is too large, try again!")
         print()
+    except RamsZeroDivisionError:
+        print("Sory I cannot divide by Zero!")
+        raise(RamsException1010("Error message"))
 
 print("Congratulations! You guessed it correctly.")
 

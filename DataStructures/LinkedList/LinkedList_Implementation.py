@@ -68,5 +68,3 @@ s.add_at_front(5)
 s.add_at_end(8)
 s.add_at_front(9)
 s.print_list()
-
-

@@ -22,5 +22,5 @@ __author__ = 'Sanjay'
 # How many chickens does it take to cross the road?
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 #getInput = raw_input("How many chickens does it take to cross the road?\n")
-name = input()
-print (name)
+name = input("Enter your name: ")
+print ("Thanks for contacting ", name)

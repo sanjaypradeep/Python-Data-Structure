@@ -35,7 +35,7 @@ if __name__ == '__main__':
     print(firstInputList)                                    # ['a', 'b', 'c', 'd', [1, 2, 3]]
 
     ob = singleList()
-    # ob.appendingAllElementsInAList(firstInputList)
+    ob.appendingAllElementsInAList(firstInputList)
 
     # Take this example, here elements inside the below lists are again list.
     sampleList = [[1, 2, 3], [4, 5, 6], [7], [8, 9]]
