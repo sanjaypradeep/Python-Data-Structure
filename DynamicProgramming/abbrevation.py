@@ -11,17 +11,17 @@ a=daBcd and b="ABC"
 daBcd -> capitalize a and c(dABCd) -> remove d (ABC)
 """
 
-def abbrevation(first_input: str, second_input: str) -> bool:
+def need_transform(first_input: str, second_input: str) -> bool:
     """
-    Determines if string a can be transformed into string b by capitalizing
+    Determines if string first_input can be transformed into string second_input by capitalizing
     zero or more lowercase letters and deleting all other lowercase letters.
 
     Args:
-    a (str): The original string.
-    b (str): The target string.
+    first_input (str): The original string.
+    second_input (str): The target string.
 
     Returns:
-    bool: True if a can be transformed into b, False otherwise.
+    bool: True if first_input can be transformed into second_input, False otherwise.
     """
 
     dp = [[False] * (len(first_input) + 1) for _ in range(len(second_input) + 1)]
@@ -37,4 +37,4 @@ def abbrevation(first_input: str, second_input: str) -> bool:
 
     return dp[len(second_input)][len(first_input)]
 
-print(abbrevation("daBcd", "ABC"))
+print(need_transform("daBcd", "ABC"))
