@@ -50,8 +50,7 @@ def word_break(string: str, words: list[str]) -> bool:
         ...
     ValueError: the words should be a list of non-empty strings
     """
-
-    # Validation
+    
     if not isinstance(string, str) or len(string) == 0:
         raise ValueError("the string should be not empty string")
 
@@ -60,22 +59,25 @@ def word_break(string: str, words: list[str]) -> bool:
     ):
         raise ValueError("the words should be a list of non-empty strings")
 
-    
-    # Build trie
-    trie: dict[str, Any] = {}
     word_keeper_key = "WORD_KEEPER"
 
-    for word in words:
-        trie_node = trie
-        for c in word:
-            if c not in trie_node:
-                trie_node[c] = {}
+    # Helper function to build the trie
+    def build_trie(words: list[str]) -> dict[str, Any]:
+        trie: dict[str, Any] = {}        
 
-            trie_node = trie_node[c]
+        for word in words:
+            trie_node = trie            
+            for c in word:
+                if c not in trie_node:
+                    trie_node[c] = {}
+                trie_node = trie_node[c]
+            trie_node[word_keeper_key] = True
 
-        trie_node[word_keeper_key] = True
+        return trie
 
-    len_string = len(string)
+    # Build trie
+    trie = build_trie(words)
+    strLength = len(string)
 
     # Dynamic programming method
     @functools.cache
@@ -85,17 +87,17 @@ def word_break(string: str, words: list[str]) -> bool:
         >>> is_breakable(1)
         True
         """
-        if index == len_string:
+        if index == strLength:
             return True
 
         trie_node = trie
-        for i in range(index, len_string):
-            trie_node = trie_node.get(string[i], None)
+        for letter in range(index, strLength):
+            trie_node = trie_node.get(string[letter], None)
 
             if trie_node is None:
                 return False
 
-            if trie_node.get(word_keeper_key, False) and is_breakable(i + 1):
+            if trie_node.get(word_keeper_key, False) and is_breakable(letter + 1):
                 return True
 
         return False
