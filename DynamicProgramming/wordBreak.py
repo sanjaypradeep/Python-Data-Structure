@@ -21,7 +21,7 @@ import functools
 from typing import Any
 
 
-def word_break(string: str, words: list[str]) -> bool:
+def word_break(givenInputString: str, words: list[str]) -> bool:
     """
     Return True if numbers have opposite signs False otherwise.
 
@@ -51,7 +51,7 @@ def word_break(string: str, words: list[str]) -> bool:
     ValueError: the words should be a list of non-empty strings
     """
     
-    if not isinstance(string, str) or len(string) == 0:
+    if not isinstance(givenInputString, str) or len(givenInputString) == 0:
         raise ValueError("the string should be not empty string")
 
     if not isinstance(words, list) or not all(
@@ -61,8 +61,21 @@ def word_break(string: str, words: list[str]) -> bool:
 
     word_keeper_key = "WORD_KEEPER"
 
-    # Helper function to build the trie
+    
     def build_trie(words: list[str]) -> dict[str, Any]:
+        """
+        Builds a trie (prefix tree) from a list of words.
+        Args:
+            words (list[str]): A list of words to be inserted into the trie.
+        Returns:
+            dict[str, Any]: The root of the trie data structure.
+        Example:
+            >>> words = ["apple", "app", "banana"]
+            >>> trie = build_trie(words)
+            >>> print(trie)
+            {'a': {'p': {'p': {'l': {'e': {'word_keeper_key': True}}, 'word_keeper_key': True}}}, 'b': {'a': {'n': {'a': {'n': {'a': {'word_keeper_key': True}}}}}}}
+        """
+        
         trie: dict[str, Any] = {}        
 
         for word in words:
@@ -74,25 +87,28 @@ def word_break(string: str, words: list[str]) -> bool:
             trie_node[word_keeper_key] = True
 
         return trie
+    
+        
+    """
+    The functools.cache decorator is used to cache the results of the function it decorates. This means that when the function is called with the same arguments, the cached result is returned instead of recomputing the result. This can significantly improve performance, especially for recursive functions like is_breakable in your code.
 
-    # Build trie
-    trie = build_trie(words)
-    strLength = len(string)
+    In your word_break function, functools.cache is used to cache the results of the is_breakable function. This helps avoid redundant calculations and speeds up the process of checking if the string can be segmented into words from the given list.
 
-    # Dynamic programming method
+    Here's a brief explanation of how it works in your code:
+
+    When is_breakable is called with a specific index, the result is computed and stored in the cache.
+    If is_breakable is called again with the same index, the cached result is returned immediately, avoiding the need to recompute the result.
+    This caching mechanism helps optimize the recursive calls, making the function more efficient.
+    """    
     @functools.cache
     def is_breakable(index: int) -> bool:
-        """
-        >>> string = 'a'
-        >>> is_breakable(1)
-        True
-        """
-        if index == strLength:
+        
+        if index == len(givenInputString):
             return True
 
-        trie_node = trie
-        for letter in range(index, strLength):
-            trie_node = trie_node.get(string[letter], None)
+        trie_node =  build_trie(words)
+        for letter in range(index, len(givenInputString)):
+            trie_node = trie_node.get(givenInputString[letter], None)
 
             if trie_node is None:
                 return False
