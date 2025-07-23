@@ -1,77 +1,38 @@
+"""
+What is a lambda function in Python?
 
+A lambda function is a small anonymous function defined with the 'lambda' keyword.
+It can take any number of arguments but can only have one expression.
 
-def squareNumber(n):
-    if type(n) == int:        
-        return n*n
-    else:
-        return 0
+Syntax:
+    lambda arguments: expression
+"""
 
-def checkForEven(n):
-    if type(n) is not int:
-        return
-    return n%2 ==0 
+# Example 1: Basic lambda function
+add = lambda x, y: x + y
+print("add(2, 3):", add(2, 3))  # Output: 5
 
-def add(x, y):
-    return x+y
-print(squareNumber(10))
+# Example 2: Lambda with map
+numbers = [1, 2, 3, 4]
+squared = list(map(lambda x: x ** 2, numbers))
+print("Squared numbers:", squared)  # Output: [1, 4, 9, 16]
 
-# if you want to pass a list as a  parameter, then will the above function (add()) block will support?
+# Example 3: Lambda with filter
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print("Even numbers:", evens)  # Output: [2, 4]
 
-# NO
+# Example 4: Lambda with sorted
+pairs = [(2, 3), (1, 4), (5, 0)]
+sorted_pairs = sorted(pairs, key=lambda pair: pair[1])
+print("Pairs sorted by second element:", sorted_pairs)  # Output: [(5, 0), (2, 3), (1, 4)]
 
-sampleList =[1,2,3,4,5]
-outputList = []
-for i in sampleList:
-    outputList.append(squareNumber(i))
+# Comparison: Regular function vs lambda
+def multiply(x, y):
+    return x * y
 
-print(outputList)
+multiply_lambda = lambda x, y: x * y
 
+print("multiply(3, 4):", multiply(3, 4))           # Output: 12
+print("multiply_lambda(3, 4):", multiply_lambda(3, 4))  # Output: 12
 
-outputList2 = []
-for i in sampleList:
-    if checkForEven(i):
-        outputList2.append(i)    
-print("output list 2 is ", outputList2)
-# ===================================================
-
-evenNum = list(filter(lambda  x: x%2 ==0, sampleList))
-print(evenNum)
-
-
-sqNum = list(map(squareNumber, sampleList))
-print("sqNum is .. ", sqNum)
-
-globalExample = map(lambda x, y: (x+y, x-y, x*y), [10, 20, 30, 40],[5,10,15,20])
-globalExample = map(lambda x, y: (x+y, x-y, x*y), [10, 20, 30, 40],[5,10,15,20])
-print(list(globalExample))
-
-
-
-
-
-# List of strings 
-l = ['sat', 'bat', 'cat', 'mat'] 
-
-opList = []
-for i in l:
-    opList.append(list(i))
-print(opList)
-
-map(list, l)
-
-
-
-# class calculator:    
-#     add = lambda x,y: x+y
-#     sub = lambda x,y: x-y
-#     mul = lambda x,y: x*y
-
-#     def add(a,b):
-#         return a+b
-
-# print("here you go ...")
-
-# cal = calculator()
-
-# print(calculator.add(10,5))
-
+# Note: Lambda functions are best for short, simple operations.
