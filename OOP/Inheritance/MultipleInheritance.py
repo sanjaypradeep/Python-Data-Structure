@@ -10,11 +10,11 @@ Questions:
     1. ChildClass will always get confused whom to listen and whom not to ignore.
     2. Because, child inherits both the parent class
     3. How can we solve this? Whenever there's a action needed,
-        child should either react for father or another father instructions.
+        child should either react for father or mother's instructions.
         Child has to give priority to what to listen and what not to.
 
 OK! We have something called, ****Method Resolution Order*****
-Decision on what parent to listen is happening here!
+Decision on which parent to listen is happening here!
 
 Scenario 1:
 class ChildClass(Mother, Father): #consider child class dont have getUpEarlyMorninig method
@@ -74,10 +74,12 @@ class ChildClass(Mother, Father):  # Method resolution order
         pass
 
     def getUpEarlyMorning(self):
-        print("I will get up at 5 AM")
+        print("I am overriding both parents - I will take my own decision, because I am grown up now!")        
+        print("its me the CHILD - I will get up at 11 AM")
         # pass
 
 if __name__ == '__main__':
     b = ChildClass()
     b.getUpEarlyMorning()
+    # To check the method resolution order
     print (ChildClass.__mro__)
