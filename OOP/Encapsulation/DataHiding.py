@@ -56,7 +56,7 @@ if __name__ == '__main__':
     #
     # print(objOfSampleClass.__a)  # uncomment and run this line, it will throw an error.
     #
-    # # If you want to bring out the private attribute of a class, then please see the next time.
+    # # If you want to bring out the private attribute of a class, then please see the next line.
     print(objOfSampleClass._SampleClass__a)  # to access __a,
     # object._ClassName__privateVariable
 
