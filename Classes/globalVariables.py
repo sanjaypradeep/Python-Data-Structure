@@ -2,17 +2,19 @@
 
 import math
 
-
-
-class AreaOfCircle():
+class Circle():
     PI_VALUE = 3.14
+        
+    def calculate_area(self, radius):
+        return PI_VALUE * (self.radius**2)
+
+class CustomClass():
 
     def __init__(self, name, gender):
         self.name = name
         self.gender = gender
 
-    def areaCalculation(self, radius):
-        return 3.14 * (radius**2)
+
 
 
 # sampleObj = AreaOfCircle()
@@ -31,12 +33,7 @@ class AreaOfCircle():
 
 ###############
 
-ramObj = AreaOfCircle('Ram', 'Male')
+ramObj = CustomClass('Ram', 'Male')
 
 print(ramObj.name)
 print(ramObj.gender)
-
-
-# how about this?
-
-print(AreaOfCircle.name)
